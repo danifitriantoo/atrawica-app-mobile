@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="Home"/>
+    <item
+        android:id="@+id/home_ticket"
+        android:enabled="true"
+        android:icon="@drawable/ic_ticket"
+        android:title="Tiketku"/>
+    <item
+        android:id="@+id/home_fav"
+        android:enabled="true"
+        android:icon="@drawable/ic_fav"
+        android:title="Bucket List"/>
+    <item
+        android:id="@+id/home_faq"
+        android:enabled="true"
+        android:icon="@drawable/ic_faq"
+        android:title="Bingung?"/>
+</menu>

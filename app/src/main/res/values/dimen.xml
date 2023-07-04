@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="margin">24dp</dimen>
+    <dimen name="margin_card">12dp</dimen>
+
+    <dimen name="padding">16dp</dimen>
+    <dimen name="padding_button">14dp</dimen>
+
+</resources>

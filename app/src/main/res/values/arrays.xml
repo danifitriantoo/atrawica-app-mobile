@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="departure_city" >
+        <item>Magelang</item>
+        <item>Yogyakarta</item>
+        <item>Semarang</item>
+        <item>Solo</item>
+    </string-array>
+</resources>
