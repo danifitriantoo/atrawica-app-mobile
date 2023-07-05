@@ -34,10 +34,10 @@ class BookingTicketActivity : AppCompatActivity() {
             binding.tvTemple.text = it[0].place.name
         }
 
-//        val intent = Intent(this,CheckoutActivity::class.java)
-//        startActivity(intent)
-
-        Log.d("Data Booking onCreate",intent.getIntExtra("bookingId",0).toString())
+        binding.btnBayar.setOnClickListener {
+            val intent = Intent(this,CheckoutActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 

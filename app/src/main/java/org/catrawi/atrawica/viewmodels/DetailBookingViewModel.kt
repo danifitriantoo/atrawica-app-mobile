@@ -16,15 +16,12 @@ class DetailBookingViewModel(
     private val repository: DetailBookingRepository
 ): ViewModel() {
 
-    val responseData = MutableLiveData<ArrayList<DetailBooking>>()
-    val responseTicket = MutableLiveData<ArrayList<Ticket>>()
+    val responseData = MutableLiveData<DetailBooking>()
     val errorLog = MutableLiveData<String>()
 
-    fun postBooking() {
+    fun postBooking(data: DetailBooking) {
 
-        val response = repository.postDetailBooking(data = DetailBooking(
-            0,0,0,"","", "","",0)
-        )
+        val response = repository.postDetailBooking(data)
 
         response.enqueue(object: Callback<DetailBookingMeta> {
             override fun onResponse(call: Call<DetailBookingMeta>, response: Response<DetailBookingMeta>) {
@@ -38,12 +35,9 @@ class DetailBookingViewModel(
             }
 
             override fun onFailure(call: Call<DetailBookingMeta>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.d("Error Found",t.message.toString())
             }
-
         })
-
-
     }
 
     fun getDetailBooking() {
@@ -67,6 +61,4 @@ class DetailBookingViewModel(
 
         } )
     }
-
-
 }

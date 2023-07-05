@@ -6,44 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".views.DetailActivity">
 
-<!--    <com.google.android.material.appbar.AppBarLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="72dp"-->
-<!--        android:background="@color/magentaColor">-->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@color/magentaColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-<!--        <com.google.android.material.appbar.MaterialToolbar-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="4dp"-->
-<!--            app:menu="@menu/top_appbar"-->
-<!--            app:title="Ratu Boko"-->
-<!--            app:titleTextColor="@color/white"-->
-<!--            app:titleTextAppearance="@style/whiteTextHeader"-->
-<!--            app:titleCentered="true"-->
-<!--            app:navigationIcon="@drawable/ic_back"/>-->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:menu="@menu/top_appbar"
+            app:navigationIcon="@drawable/ic_back"
+            app:navigationIconTint="@color/white"
+            app:title="Ratu Boko"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/whiteTextHeader"
+            app:titleTextColor="@color/white" />
 
-<!--    </com.google.android.material.appbar.AppBarLayout>-->
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="76dp"
+        android:orientation="vertical"
         android:padding="@dimen/margin"
-        android:orientation="vertical">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
 
         <TextView
             android:id="@+id/tv_description"
             style="@style/blackTextContent"
-            android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Disebut Kraton Boko, karena menurut legenda situs tersebut merupakan istana Ratu Boko, ayah Lara Jonggrang. " />
+            android:text="Disebut Kraton Boko, karena menurut legenda situs tersebut merupakan istana Ratu Boko, ayah Lara Jonggrang. "
+            android:textSize="16sp" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding"
-            >
+            android:layout_marginTop="@dimen/padding">
 
             <ImageView
                 android:id="@+id/iv_places"
@@ -55,22 +64,22 @@
 
             <TextView
                 android:id="@+id/tv_name"
+                style="@style/blackTextBody"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="6dp"
                 android:text="Ratu Boko"
-                style="@style/blackTextBody"
                 app:layout_constraintBottom_toTopOf="@+id/textView3"
                 app:layout_constraintStart_toEndOf="@+id/iv_places" />
 
             <TextView
                 android:id="@+id/textView3"
+                style="@style/blackTextContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="10dp"
-                style="@style/blackTextContent"
                 android:text="Kayak di sosmed, coba tab icon dikiri"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_places" />
@@ -84,7 +93,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/carousel_recycler_view"
@@ -98,19 +107,19 @@
         </ScrollView>
 
         <TextView
+            style="@style/blackTextContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:layout_marginTop="@dimen/padding"
-            style="@style/blackTextContent"
-            android:text="Geser aja buat liat fotonya"/>
+            android:gravity="center_horizontal"
+            android:text="Geser aja buat liat fotonya" />
 
         <TextView
+            style="@style/blackTextBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding"
-            style="@style/blackTextBody"
-            android:text="Bakal Dapet Apa Aja"/>
+            android:text="Bakal Dapet Apa Aja" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -120,56 +129,56 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/padding">
+                android:layout_marginTop="@dimen/padding"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@color/white"/>
+                    android:src="@color/white" />
 
                 <TextView
+                    style="@style/blackTextContent"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:gravity="center_vertical"
                     android:paddingStart="@dimen/padding"
-                    style="@style/blackTextContent"
-                    android:textSize="16sp"
-                    android:text="Dapat tiket masuk wisatanya"/>
+                    android:text="Dapat tiket masuk wisatanya"
+                    android:textSize="16sp" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/padding">
+                android:layout_marginTop="@dimen/padding"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@color/white"/>
+                    android:src="@color/white" />
 
                 <TextView
+                    style="@style/blackTextContent"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:gravity="center_vertical"
                     android:paddingStart="@dimen/padding"
-                    style="@style/blackTextContent"
-                    android:textSize="16sp"
                     android:text="Kalau kamu dari luar kota,
-                                    kita pesenin tiket transportasi."/>
+                                    kita pesenin tiket transportasi."
+                    android:textSize="16sp" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_booking"
+                style="@style/whiteTextBody"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
                 android:layout_marginTop="@dimen/margin"
                 android:background="@color/magentaColor"
-                style="@style/whiteTextBody"
-                android:text="Langsung Booking"/>
+                android:text="Langsung Booking" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

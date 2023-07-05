@@ -51,7 +51,7 @@ data class DetailBookingMeta(
     var code: String,
 
     @SerializedName("data")
-    var data: ArrayList<DetailBooking>
+    var data: DetailBooking
 )
 
 data class DetailBooking(
@@ -64,8 +64,8 @@ data class DetailBooking(
     @SerializedName("ticketId")
     var ticketId: Int,
 
-    @SerializedName("paymentMethod")
-    var paymentMethod: String,
+    @SerializedName("paymentId")
+    var paymentMethod: Int,
 
     @SerializedName("departureTime")
     var departureTime: String,
@@ -74,7 +74,7 @@ data class DetailBooking(
     var backTime: String,
 
     @SerializedName("status")
-    var status: String,
+    var status: Boolean,
 
     @SerializedName("totalPrice")
     var totalPrice: Int,

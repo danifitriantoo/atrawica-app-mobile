@@ -28,7 +28,7 @@ class PlaceAdapter : RecyclerView.Adapter<PlaceViewHolder>() {
         val place = places[position]
         holder.binding.tvName.text = place.name
         holder.binding.tvDescription.text = place.description
-        holder.binding.tvPrice.text = place.price.toString()
+        holder.binding.tvPrice.text = "IDR ${place.price}"
 
         holder.binding.card.setOnClickListener {
             listener?.onItemClicked(it,places[position])
