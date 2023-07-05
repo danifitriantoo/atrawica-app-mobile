@@ -12,8 +12,8 @@ class PlaceAdapter : RecyclerView.Adapter<PlaceViewHolder>() {
     var places = mutableListOf<Place>()
     var listener: ItemListener? = null
 
-    fun setMovieList(movies: List<Place>) {
-        this.places = movies.toMutableList()
+    fun setPlaceList(places: List<Place>) {
+        this.places = places.toMutableList()
         notifyDataSetChanged()
     }
 
@@ -28,7 +28,7 @@ class PlaceAdapter : RecyclerView.Adapter<PlaceViewHolder>() {
         val place = places[position]
         holder.binding.tvName.text = place.name
         holder.binding.tvDescription.text = place.description
-        holder.binding.tvPrice.text = place.price.toString()
+        holder.binding.tvPrice.text = "IDR ${place.price}"
 
         holder.binding.card.setOnClickListener {
             listener?.onItemClicked(it,places[position])

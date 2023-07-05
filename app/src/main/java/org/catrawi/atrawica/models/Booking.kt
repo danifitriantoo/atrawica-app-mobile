@@ -24,6 +24,16 @@ data class BookingMetaList(
     var data: ArrayList<Booking>,
 )
 
+data class BookingMetaResponseList(
+    @SerializedName("status")
+    var status: String,
+
+    @SerializedName("code")
+    var code: Int,
+
+    @SerializedName("data")
+    var data: ArrayList<BookingResponse>,
+)
 data class Booking(
     @SerializedName("id")
     var id: Int?,
@@ -41,9 +51,37 @@ data class Booking(
     var qty: Int,
 )
 
+data class BookingResponse(
+    @SerializedName("id")
+    var id: Int?,
+
+    @SerializedName("user")
+    var user: User,
+
+    @SerializedName("place")
+    var place: Place,
+
+    @SerializedName("date")
+    var date: String,
+
+    @SerializedName("qty")
+    var qty: Int,
+)
+
 /* buat class data untuk detail booking */
 
 data class DetailBookingMeta(
+    @SerializedName("status")
+    var status: String,
+
+    @SerializedName("code")
+    var code: String,
+
+    @SerializedName("data")
+    var data: DetailBooking
+)
+
+data class DetailBookingMetaList(
     @SerializedName("status")
     var status: String,
 
@@ -64,8 +102,8 @@ data class DetailBooking(
     @SerializedName("ticketId")
     var ticketId: Int,
 
-    @SerializedName("paymentMethod")
-    var paymentMethod: String,
+    @SerializedName("paymentId")
+    var paymentMethod: Int,
 
     @SerializedName("departureTime")
     var departureTime: String,
@@ -74,8 +112,8 @@ data class DetailBooking(
     var backTime: String,
 
     @SerializedName("status")
-    var status: String,
+    var status: Boolean,
 
-    @SerializedName("totalPrice")
-    var totalPrice: Int,
+    @SerializedName("price")
+    var price: Int,
 )

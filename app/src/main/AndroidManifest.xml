@@ -17,6 +17,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".views.TicketActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.ConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.RegisterActivity"
+            android:exported="true" />
+        <activity
             android:name=".views.CheckoutActivity"
             android:exported="true" />
         <activity

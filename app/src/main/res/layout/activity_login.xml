@@ -34,7 +34,7 @@
                 android:layout_marginTop="@dimen/padding"
                 style="@style/whiteTextBody"
                 android:textSize="20sp"
-                android:text="Candi itu salah satu wisata budaya, masuk ke akun kamu dan rencain perjanan kamu tanpa ribet bareng kami."/>
+                android:text="Masuk dan mulai rencanakan wisatamu."/>
 
         </LinearLayout>
 
@@ -95,27 +95,43 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_marginTop="@dimen/padding"
-                android:background="@color/magentaColor"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:paddingVertical="@dimen/margin"
+                android:background="@drawable/main_button_style"
                 style="@style/whiteTextBody"
                 android:text="Masuk"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_signup"
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_marginTop="@dimen/margin"
-                android:background="@color/grayLight"
-                android:backgroundTint="@color/grayColor"
-                style="@style/whiteTextBody"
-                android:text="Buat Akun"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/margin"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding"
+                    style="@style/whiteTextContent"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:text="Belum punya akun? "/>
+
+                <TextView
+                    android:id="@+id/tv_register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding"
+                    style="@style/whiteTextBody"
+                    android:textColor="@color/magentaColor"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="Register"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -158,44 +158,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <TextView
-            style="@style/blackTextContent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding"
-            android:text="Buat berapa orang?"
-            android:textSize="14sp" />
-
-        <com.google.android.material.button.MaterialButtonToggleGroup
-            android:id="@+id/toggleButton"
-            android:layout_width="wrap_content"
-            android:layout_height="64dp"
-            android:layout_marginTop="@dimen/margin_card">
-
-            <Button
-                android:id="@+id/button1"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="1 Orang" />
-
-            <Button
-                android:id="@+id/button2"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="2 Orang" />
-
-            <Button
-                android:id="@+id/button3"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="3 Orang" />
-        </com.google.android.material.button.MaterialButtonToggleGroup>
-
-
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.AppCompatButton

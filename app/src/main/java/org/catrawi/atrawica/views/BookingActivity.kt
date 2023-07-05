@@ -62,7 +62,7 @@ class BookingActivity : AppCompatActivity() {
         binding.btnBayar.setOnClickListener {
             val date = binding.etDate.text.toString()
 
-            val data = Booking(0, 18, placeId, date, 1)
+            val data = Booking(0, 18, 1602, "2023-12-12", 1)
 
             viewModel.postBooking(data)
 

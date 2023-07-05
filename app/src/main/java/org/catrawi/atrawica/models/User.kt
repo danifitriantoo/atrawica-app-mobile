@@ -3,21 +3,32 @@ package org.catrawi.atrawica.models
 import com.google.gson.annotations.SerializedName
 
 data class Meta (
-    @SerializedName("meta")
-    var meta: AccessCredetial)
-
-data class AccessCredetial (
     @SerializedName("status")
     var status: String,
 
     @SerializedName("code")
     var code: Int,
 
-    @SerializedName("token")
-    var authToken: String,
+    @SerializedName("data")
+    var data: AccessCredetial,
+)
 
-    @SerializedName("message")
-    var message: String)
+data class MetaRegister (
+    @SerializedName("status")
+    var status: String,
+
+    @SerializedName("code")
+    var code: Int,
+
+    @SerializedName("data")
+    var data: User,
+)
+
+data class AccessCredetial (
+
+    @SerializedName("token")
+    var authToken: String
+)
 
 data class Credential (
     @SerializedName("email")
@@ -37,6 +48,12 @@ data class User (
     @SerializedName("email")
     var email: String,
 
+    @SerializedName("noHp")
+    var noHp: String,
+
     @SerializedName("keypass")
-    var keypass: String
+    var keypass: String,
+
+    @SerializedName("budget")
+    var budget: Int
 )

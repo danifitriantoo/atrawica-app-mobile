@@ -25,7 +25,7 @@ class BookingTicketActivity : AppCompatActivity() {
             this, TicketViewModelFactory(TicketRepository(apiService)
             ))[TicketViewModel::class.java]
 
-        viewModel.getTicket(1602,40281)
+        viewModel.getTicket(3,40281)
         viewModel.responseData.observe(this) {
             Log.d("Data Ticket", it.toString())
 
@@ -34,10 +34,10 @@ class BookingTicketActivity : AppCompatActivity() {
             binding.tvTemple.text = it[0].place.name
         }
 
-//        val intent = Intent(this,CheckoutActivity::class.java)
-//        startActivity(intent)
-
-        Log.d("Data Booking onCreate",intent.getIntExtra("bookingId",0).toString())
+        binding.btnBayar.setOnClickListener {
+            val intent = Intent(this,CheckoutActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 

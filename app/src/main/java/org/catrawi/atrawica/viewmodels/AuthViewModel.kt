@@ -1,8 +1,8 @@
 package org.catrawi.atrawica.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import org.catrawi.atrawica.models.AccessCredetial
 import org.catrawi.atrawica.models.Credential
 import org.catrawi.atrawica.models.Meta
 import org.catrawi.atrawica.viewmodels.repository.AuthRepository
@@ -14,7 +14,7 @@ class AuthViewModel(
     private val  repository: AuthRepository
 ) : ViewModel() {
 
-    val responseData = MutableLiveData<AccessCredetial>()
+    val responseData = MutableLiveData<Meta>()
     val errorLog = MutableLiveData<String>()
 
     fun userAuth(data: Credential) {
@@ -22,7 +22,11 @@ class AuthViewModel(
         val response = repository.userAuth(data)
         response.enqueue(object: Callback<Meta> {
             override fun onResponse(call: Call<Meta>, response: Response<Meta>) {
-                responseData.postValue(response.body()?.meta)
+                responseData.postValue(response.body())
+                Log.e("Token Data", response.body()?.data!!.authToken)
+
+
+
             }
 
             override fun onFailure(call: Call<Meta>, t: Throwable) {

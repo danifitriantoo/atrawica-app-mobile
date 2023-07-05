@@ -4,7 +4,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,10 +13,8 @@ import org.catrawi.atrawica.databinding.FragmentEasyBinding
 import org.catrawi.atrawica.models.Place
 import org.catrawi.atrawica.services.api.ApiService
 import org.catrawi.atrawica.viewmodels.HomeViewModel
-import org.catrawi.atrawica.viewmodels.TestViewModel
 import org.catrawi.atrawica.viewmodels.factory.HomeViewModelFactory
 import org.catrawi.atrawica.viewmodels.repository.HomeRepository
-import org.catrawi.atrawica.viewmodels.repository.TestRepository
 import org.catrawi.atrawica.views.DetailActivity
 
 class EasyFragment : Fragment(), ItemListener {
@@ -52,7 +49,7 @@ class EasyFragment : Fragment(), ItemListener {
 
         homeViewModel.responseData.observe(requireActivity()) {
             Log.d("API Call", "places : $it")
-            adapter.setMovieList(it)
+            adapter.setPlaceList(it)
         }
 
         homeViewModel.errorLog.observe(requireActivity()) {

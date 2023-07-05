@@ -5,8 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.catrawi.atrawica.models.DetailBooking
 import org.catrawi.atrawica.models.DetailBookingMeta
-import org.catrawi.atrawica.models.Ticket
-import org.catrawi.atrawica.models.TicketMeta
 import org.catrawi.atrawica.viewmodels.repository.DetailBookingRepository
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,15 +14,12 @@ class DetailBookingViewModel(
     private val repository: DetailBookingRepository
 ): ViewModel() {
 
-    val responseData = MutableLiveData<ArrayList<DetailBooking>>()
-    val responseTicket = MutableLiveData<ArrayList<Ticket>>()
+    val responseData = MutableLiveData<DetailBooking>()
     val errorLog = MutableLiveData<String>()
 
-    fun postBooking() {
+    fun postDetailBooking(data: DetailBooking) {
 
-        val response = repository.postDetailBooking(data = DetailBooking(
-            0,0,0,"","", "","",0)
-        )
+        val response = repository.postDetailBooking(data)
 
         response.enqueue(object: Callback<DetailBookingMeta> {
             override fun onResponse(call: Call<DetailBookingMeta>, response: Response<DetailBookingMeta>) {
@@ -38,35 +33,30 @@ class DetailBookingViewModel(
             }
 
             override fun onFailure(call: Call<DetailBookingMeta>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.d("Error Found",t.message.toString())
             }
-
         })
-
-
     }
 
-    fun getDetailBooking() {
-        val response = repository.getDetailBooking()
-
-        response.enqueue(object: Callback<DetailBookingMeta>{
-            override fun onResponse(call: Call<DetailBookingMeta>, response: Response<DetailBookingMeta>) {
-                when (response.code()){
-                    200 -> responseData.postValue(response.body()?.data)
-                    401 -> errorLog.postValue("Not Found")
-                    402 -> errorLog.postValue("Server Error")
-                }
-
-                Log.d("Status Code", "code: ${response.code()}")
-            }
-
-            override fun onFailure(call: Call<DetailBookingMeta>, t: Throwable) {
-                errorLog.postValue(t.message)
-                TODO("Not yet implemented")
-            }
-
-        } )
-    }
-
-
+//    fun getDetailBooking() {
+//        val response = repository.getDetailBooking()
+//
+//        response.enqueue(object: Callback<DetailBookingMeta>{
+//            override fun onResponse(call: Call<DetailBookingMeta>, response: Response<DetailBookingMeta>) {
+//                when (response.code()){
+//                    200 -> responseData.postValue(response.body()?.data)
+//                    401 -> errorLog.postValue("Not Found")
+//                    402 -> errorLog.postValue("Server Error")
+//                }
+//
+//                Log.d("Status Code", "code: ${response.code()}")
+//            }
+//
+//            override fun onFailure(call: Call<DetailBookingMeta>, t: Throwable) {
+//                errorLog.postValue(t.message)
+//                TODO("Not yet implemented")
+//            }
+//
+//        } )
+//    }
 }

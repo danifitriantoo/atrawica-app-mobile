@@ -227,7 +227,7 @@
                 android:layout_marginVertical="@dimen/margin"
                 android:layout_marginBottom="@dimen/padding"
                 android:text="IDR 1.190.000"
-                app:layout_constraintBottom_toTopOf="@id/btn_sucess_login"
+                app:layout_constraintBottom_toTopOf="@id/btn_bayar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -247,7 +247,7 @@
                 android:text="Pilih Metode Pembayaran" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_sucess_login"
+                android:id="@+id/btn_bayar"
                 style="@style/whiteTextBody"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
