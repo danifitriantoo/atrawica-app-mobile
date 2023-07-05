@@ -68,23 +68,5 @@ class DetailBookingViewModel(
         } )
     }
 
-    fun getTicket(placeId : Int,departureId: Int) {
-        val response = repository.getTicket(placeId,departureId)
 
-        response.enqueue(object: Callback<TicketMeta>{
-            override fun onResponse(call: Call<TicketMeta>, response: Response<TicketMeta>) {
-                when (response.code()){
-                    200 -> responseTicket.postValue(response.body()?.data)
-                    401 -> errorLog.postValue("Not Found")
-                    402 -> errorLog.postValue("Server Error")
-                }
-
-                Log.d("Status Code", "code: ${response.code()}")
-            }
-
-            override fun onFailure(call: Call<TicketMeta>, t: Throwable) {
-                Log.d("Error Found",t.message.toString())
-            }
-        })
-    }
 }

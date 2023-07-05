@@ -39,7 +39,7 @@ interface ApiService {
 
 
     /* Endpoint - Place */
-    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImRhbmkiLCJOb19IcCI6InN0cmluZyIsIkJ1ZGdldCI6IjAiLCJlbWFpbCI6ImZuQG1haWwuY29tIiwibmJmIjoxNjg4NDQ0OTYxLCJleHAiOjE2ODg0NDg1NjEsImlhdCI6MTY4ODQ0NDk2MX0.K7GktIShycJUDidAQNTvjL9dcVoq5NdwIorwwNM65Wc")
+    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImRhbmkiLCJOb19IcCI6InN0cmluZyIsIkJ1ZGdldCI6IjAiLCJlbWFpbCI6ImZuQG1haWwuY29tIiwibmJmIjoxNjg4NTE4NDA0LCJleHAiOjE2ODg1MjIwMDQsImlhdCI6MTY4ODUxODQwNH0.nG272sevGLlM4c8ZEWAuBIamgBDv4UzBo0yN-yJhsBY")
     @GET("Place")
     fun getAllPlace(): Call<PlaceMeta>
 
@@ -54,7 +54,7 @@ interface ApiService {
     @GET("Booking")
     fun getAllBooking(@Query("userId") userId: Int): Call<BookingMetaList>
 
-    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImRhbmkiLCJOb19IcCI6InN0cmluZyIsIkJ1ZGdldCI6IjAiLCJlbWFpbCI6ImZuQG1haWwuY29tIiwibmJmIjoxNjg4NDQ0OTYxLCJleHAiOjE2ODg0NDg1NjEsImlhdCI6MTY4ODQ0NDk2MX0.K7GktIShycJUDidAQNTvjL9dcVoq5NdwIorwwNM65Wc")
+    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImRhbmkiLCJOb19IcCI6InN0cmluZyIsIkJ1ZGdldCI6IjAiLCJlbWFpbCI6ImZuQG1haWwuY29tIiwibmJmIjoxNjg4NTE4NDA0LCJleHAiOjE2ODg1MjIwMDQsImlhdCI6MTY4ODUxODQwNH0.nG272sevGLlM4c8ZEWAuBIamgBDv4UzBo0yN-yJhsBY")
     @POST("Booking")
     fun postBooking(@Body data:Booking): Call<BookingMeta>
 
@@ -79,7 +79,7 @@ interface ApiService {
 
 
     /* Endpoint - Ticket */
-    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImRhbmkiLCJOb19IcCI6InN0cmluZyIsIkJ1ZGdldCI6IjAiLCJlbWFpbCI6ImZuQG1haWwuY29tIiwibmJmIjoxNjg4NDQ0OTYxLCJleHAiOjE2ODg0NDg1NjEsImlhdCI6MTY4ODQ0NDk2MX0.K7GktIShycJUDidAQNTvjL9dcVoq5NdwIorwwNM65Wc")
+    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImRhbmkiLCJOb19IcCI6InN0cmluZyIsIkJ1ZGdldCI6IjAiLCJlbWFpbCI6ImZuQG1haWwuY29tIiwibmJmIjoxNjg4NTE4NDA0LCJleHAiOjE2ODg1MjIwMDQsImlhdCI6MTY4ODUxODQwNH0.nG272sevGLlM4c8ZEWAuBIamgBDv4UzBo0yN-yJhsBY")
     @GET("Ticket")
     fun getTicket(@Query("PlaceId") placeId: Int,
                   @Query("DepartureId") departureId: Int): Call<TicketMeta>
