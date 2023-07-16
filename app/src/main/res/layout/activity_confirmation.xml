@@ -28,7 +28,7 @@
             style="@style/whiteTextHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_card"
+            android:layout_marginTop="@dimen/_12dp"
             android:text="Yeay, Pembayaran \nBerhasil"
             android:textAlignment="center" />
 
@@ -39,9 +39,9 @@
         style="@style/whiteTextBody"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/padding"
+        android:layout_margin="@dimen/_16dp"
         android:backgroundTint="@color/white"
-        android:paddingHorizontal="@dimen/padding_button"
+        android:paddingHorizontal="@dimen/_14dp"
         android:text="Lihat Tiket"
         android:textColor="@color/magentaColor"
         android:textStyle="bold"

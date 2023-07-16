@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import org.catrawi.atrawica.databinding.ActivityCheckoutBinding
 import org.catrawi.atrawica.models.DetailBooking
 import org.catrawi.atrawica.services.api.ApiService
+import org.catrawi.atrawica.services.api.SessionManager
 import org.catrawi.atrawica.viewmodels.DetailBookingViewModel
 import org.catrawi.atrawica.viewmodels.factory.DetailBookingViewModelFactory
 import org.catrawi.atrawica.viewmodels.repository.DetailBookingRepository
@@ -31,7 +32,7 @@ class CheckoutActivity : AppCompatActivity() {
 
         binding.btnBayar.setOnClickListener {
             try {
-                viewModel.postDetailBooking(data)
+                viewModel.postDetailBooking(SessionManager.getToken(this).toString(),data)
             } finally {
                 val intent = Intent(this@CheckoutActivity, ConfirmationActivity::class.java)
                 startActivity(intent)

@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/padding"
+            android:padding="@dimen/_16dp"
             android:background="@color/magentaColor">
 
             <TextView
@@ -31,7 +31,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding"
+                android:layout_marginTop="@dimen/_16dp"
                 style="@style/whiteTextBody"
                 android:textSize="20sp"
                 android:text="Masuk dan mulai rencanakan wisatamu."/>
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            android:padding="@dimen/padding"
+            android:padding="@dimen/_16dp"
             android:orientation="vertical">
 
             <TextView
@@ -62,7 +62,7 @@
                     android:id="@+id/et_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/margin"
+                    android:paddingBottom="@dimen/_24dp"
                     android:inputType="textNoSuggestions|text"
                     android:background="@drawable/style_textfield"/>
 
@@ -74,7 +74,7 @@
                 android:text="Password"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="@dimen/margin"
+                android:layout_marginTop="@dimen/_24dp"
                 style="@style/blackTextContent"/>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -86,7 +86,7 @@
                     android:id="@+id/et_keypass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/margin"
+                    android:paddingBottom="@dimen/_24dp"
                     android:background="@drawable/style_textfield"
                     android:inputType="textPassword"/>
 
@@ -96,8 +96,8 @@
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin"
-                android:paddingVertical="@dimen/margin"
+                android:layout_marginTop="@dimen/_24dp"
+                android:paddingVertical="@dimen/_24dp"
                 android:background="@drawable/main_button_style"
                 style="@style/whiteTextBody"
                 android:text="Masuk"
@@ -109,12 +109,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:layout_marginBottom="@dimen/margin"
+                android:layout_marginBottom="@dimen/_24dp"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/padding"
+                    android:layout_marginTop="@dimen/_16dp"
                     style="@style/whiteTextContent"
                     android:textColor="@color/black"
                     android:textSize="16sp"
@@ -124,7 +124,7 @@
                     android:id="@+id/tv_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/padding"
+                    android:layout_marginTop="@dimen/_16dp"
                     style="@style/whiteTextBody"
                     android:textColor="@color/magentaColor"
                     android:textStyle="bold"

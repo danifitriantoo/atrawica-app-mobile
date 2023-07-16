@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/padding"
+                android:padding="@dimen/_16dp"
                 android:background="@color/magentaColor">
 
                 <TextView
@@ -35,7 +35,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/padding"
+                    android:layout_marginTop="@dimen/_16dp"
                     style="@style/whiteTextBody"
                     android:textSize="20sp"
                     android:text="Buat akun dan mulai rencanakan paket wisatamu."/>
@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                android:padding="@dimen/padding"
+                android:padding="@dimen/_16dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -66,7 +66,7 @@
                         android:id="@+id/et_nama"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="@dimen/margin"
+                        android:paddingBottom="@dimen/_24dp"
                         android:inputType="textNoSuggestions|text"
                         android:background="@drawable/style_textfield"/>
 
@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:text="Email"
                     android:textSize="16sp"
-                    android:layout_marginTop="@dimen/margin"
+                    android:layout_marginTop="@dimen/_24dp"
                     app:layout_constraintStart_toStartOf="parent"
                     style="@style/blackTextContent" />
 
@@ -90,7 +90,7 @@
                         android:id="@+id/et_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="@dimen/margin"
+                        android:paddingBottom="@dimen/_24dp"
                         android:inputType="textNoSuggestions|text"
                         android:background="@drawable/style_textfield"/>
 
@@ -101,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:text="No Hp"
                     android:textSize="16sp"
-                    android:layout_marginTop="@dimen/margin"
+                    android:layout_marginTop="@dimen/_24dp"
                     app:layout_constraintStart_toStartOf="parent"
                     style="@style/blackTextContent" />
 
@@ -114,7 +114,7 @@
                         android:id="@+id/et_no_hp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="@dimen/margin"
+                        android:paddingBottom="@dimen/_24dp"
                         android:inputType="textNoSuggestions|text"
                         android:background="@drawable/style_textfield"/>
 
@@ -126,7 +126,7 @@
                     android:text="Password"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="@dimen/margin"
+                    android:layout_marginTop="@dimen/_24dp"
                     style="@style/blackTextContent"/>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -138,7 +138,7 @@
                         android:id="@+id/et_keypass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="@dimen/margin"
+                        android:paddingBottom="@dimen/_24dp"
                         android:background="@drawable/style_textfield"
                         android:inputType="textPassword"/>
 
@@ -150,7 +150,7 @@
                     android:text="Confirm Password"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="@dimen/margin"
+                    android:layout_marginTop="@dimen/_24dp"
                     style="@style/blackTextContent"/>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -162,7 +162,7 @@
                         android:id="@+id/et_confirm_keypass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="@dimen/margin"
+                        android:paddingBottom="@dimen/_24dp"
                         android:background="@drawable/style_textfield"
                         android:inputType="textPassword"/>
 
@@ -172,7 +172,7 @@
                     android:id="@+id/btn_register"
                     android:layout_width="match_parent"
                     android:layout_height="64dp"
-                    android:layout_marginTop="@dimen/margin"
+                    android:layout_marginTop="@dimen/_24dp"
                     android:background="@color/magentaColor"
                     style="@style/whiteTextBody"
                     android:text="Register" />
@@ -184,7 +184,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:layout_marginBottom="@dimen/margin"
+                android:layout_marginBottom="@dimen/_24dp"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"

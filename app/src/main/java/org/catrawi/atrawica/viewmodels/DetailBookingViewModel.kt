@@ -17,9 +17,9 @@ class DetailBookingViewModel(
     val responseData = MutableLiveData<DetailBooking>()
     val errorLog = MutableLiveData<String>()
 
-    fun postDetailBooking(data: DetailBooking) {
+    fun postDetailBooking(token:String,data: DetailBooking) {
 
-        val response = repository.postDetailBooking(data)
+        val response = repository.postDetailBooking(token,data)
 
         response.enqueue(object: Callback<DetailBookingMeta> {
             override fun onResponse(call: Call<DetailBookingMeta>, response: Response<DetailBookingMeta>) {

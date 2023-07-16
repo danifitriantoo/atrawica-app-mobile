@@ -5,8 +5,14 @@ import org.catrawi.atrawica.services.api.ApiService
 import org.catrawi.atrawica.services.api.ApiService.Companion.apiService
 
 class BookingRepository constructor(private val apiService: ApiService) {
-    fun postBooking(data: Booking) = apiService.postBooking(data)
-    fun getAllBooking(userId: Int) = apiService.getAllBooking(userId)
+    fun postBooking(
+        token: String,
+        data: Booking)
+    = apiService.postBooking(token,data)
+    fun getAllBooking(
+        token: String,
+        userId: Int)
+    = apiService.getAllBooking(token,userId)
 
     /* buat untuk getBooking dan putBooking */
 }

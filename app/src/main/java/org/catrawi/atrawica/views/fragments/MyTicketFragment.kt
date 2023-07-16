@@ -3,27 +3,26 @@ package org.catrawi.atrawica.views.fragments
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import org.catrawi.atrawica.R
 import org.catrawi.atrawica.adapters.HistoryAdapter
-import org.catrawi.atrawica.adapters.PlaceAdapter
 import org.catrawi.atrawica.adapters.interfaces.TicketListener
-import org.catrawi.atrawica.databinding.FragmentEasyBinding
 import org.catrawi.atrawica.databinding.FragmentMyTicketBinding
 import org.catrawi.atrawica.models.BookingResponse
 import org.catrawi.atrawica.services.api.ApiService
+import org.catrawi.atrawica.services.api.SessionManager
 import org.catrawi.atrawica.viewmodels.HistoryViewModel
-import org.catrawi.atrawica.viewmodels.HomeViewModel
 import org.catrawi.atrawica.viewmodels.factory.HistoryViewModelFactory
-import org.catrawi.atrawica.viewmodels.factory.HomeViewModelFactory
 import org.catrawi.atrawica.viewmodels.repository.HistoryRepository
-import org.catrawi.atrawica.viewmodels.repository.HomeRepository
-import org.catrawi.atrawica.views.DetailActivity
 import org.catrawi.atrawica.views.TicketActivity
+import java.text.SimpleDateFormat
+import java.time.Instant
+import java.util.Date
 
 class MyTicketFragment : Fragment(), TicketListener {
     private lateinit var viewModel: HistoryViewModel
@@ -57,15 +56,61 @@ class MyTicketFragment : Fragment(), TicketListener {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.responseBooking.observe(requireActivity()) {
-            Log.d("API Call", "places : $it")
             adapter.setHistoryList(it)
+
+            viewModel.getDetailBooking(
+                SessionManager.getToken(requireContext()).toString(),
+                it[0].id!!.toInt())
+
+            binding.placeNameTextView.text = it[0].place.name
+            binding.personTextView.text = "${it[0].qty} Person"
+            binding.dateTextView.text = it[0].date
+        }
+
+        viewModel.responseData.observe(requireActivity()) {
+            Log.d("Detail booking data ", it.toString())
+
+            binding.waktuBerangkatTextView.text = it[0].departureTime
+            binding.waktuPulangTextView.text = it[0].backTime
+
+            if(it[0].status) {
+                binding.waktuBerangkatSuccessImageView.visibility = View.VISIBLE
+                binding.waktuPulangSuccessImageView.visibility = View.VISIBLE
+            }
+
         }
 
         viewModel.errorLog.observe(requireActivity()) {
             Log.d("Error ", "errorMessage: $it")
         }
 
-        viewModel.getAllBooking(18)
+        viewModel.getAllBooking(
+            SessionManager.getToken(requireContext()).toString(),18)
+
+        var isActive : Boolean = false
+
+        binding.arrowImageButton.setOnClickListener {
+
+            if(isActive) {
+                binding.detailTicketLinearLayout.visibility = View.GONE
+                binding.arrowImageButton.setImageResource(R.drawable.ic_arrow_down)
+                isActive = true
+            }
+
+            if(!isActive) {
+                binding.detailTicketLinearLayout.visibility = View.VISIBLE
+                binding.arrowImageButton.setImageResource(R.drawable.ic_arrow_up)
+                isActive = false
+            }
+
+        }
+
+        binding.ticketCodeImageView.setOnClickListener {
+            val intent = Intent(
+                this@MyTicketFragment.requireContext(),
+                TicketActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

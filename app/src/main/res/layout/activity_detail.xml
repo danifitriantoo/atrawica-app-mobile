@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/placeTitleAppbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -29,159 +30,160 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="76dp"
-        android:orientation="vertical"
-        android:padding="@dimen/margin"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
 
-        <TextView
-            android:id="@+id/tv_description"
-            style="@style/blackTextContent"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Disebut Kraton Boko, karena menurut legenda situs tersebut merupakan istana Ratu Boko, ayah Lara Jonggrang. "
-            android:textSize="16sp" />
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding">
-
-            <ImageView
-                android:id="@+id/iv_places"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@color/white" />
+            android:orientation="vertical"
+            android:padding="@dimen/_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
 
             <TextView
-                android:id="@+id/tv_name"
+                android:id="@+id/descriptionTextView"
+                style="@style/blackTextContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Disebut Kraton Boko, karena menurut legenda situs tersebut merupakan istana Ratu Boko, ayah Lara Jonggrang. "
+                android:textSize="16sp" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16dp">
+
+                <ImageView
+                    android:id="@+id/placeImageView"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@color/white" />
+
+                <TextView
+                    android:id="@+id/placeNameTextView"
+                    style="@style/blackTextBody"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="Ratu Boko"
+                    app:layout_constraintBottom_toTopOf="@+id/textView3"
+                    app:layout_constraintStart_toEndOf="@+id/placeImageView" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    style="@style/blackTextContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Kayak di sosmed, coba tab icon dikiri"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/placeImageView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/carousel_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="196dp"
+                        android:clipChildren="false"
+                        android:clipToPadding="false" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+            <TextView
                 style="@style/blackTextBody"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="6dp"
-                android:text="Ratu Boko"
-                app:layout_constraintBottom_toTopOf="@+id/textView3"
-                app:layout_constraintStart_toEndOf="@+id/iv_places" />
+                android:layout_marginTop="@dimen/_16dp"
+                android:text="Bakal Dapet Apa Aja" />
 
-            <TextView
-                android:id="@+id/textView3"
-                style="@style/blackTextContent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="10dp"
-                android:text="Kayak di sosmed, coba tab icon dikiri"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_places" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding">
-
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/carousel_recycler_view"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ok_ticket"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        style="@style/blackTextContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/_16dp"
+                        android:text="Tiket Wisata"
+                        android:textSize="16sp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ok_bus"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        style="@style/blackTextContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/_16dp"
+                        android:text="Tiket Transportasi."
+                        android:textSize="16sp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bookingButton"
+                    style="@style/whiteTextBody"
                     android:layout_width="match_parent"
-                    android:layout_height="196dp"
-                    android:clipChildren="false"
-                    android:clipToPadding="false" />
-
-            </LinearLayout>
-
-        </ScrollView>
-
-        <TextView
-            style="@style/blackTextContent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding"
-            android:gravity="center_horizontal"
-            android:text="Geser aja buat liat fotonya" />
-
-        <TextView
-            style="@style/blackTextBody"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding"
-            android:text="Bakal Dapet Apa Aja" />
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@color/white" />
-
-                <TextView
-                    style="@style/blackTextContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:gravity="center_vertical"
-                    android:paddingStart="@dimen/padding"
-                    android:text="Dapat tiket masuk wisatanya"
-                    android:textSize="16sp" />
+                    android:layout_height="54dp"
+                    android:layout_marginTop="@dimen/_24dp"
+                    android:background="@color/magentaColor"
+                    android:text="Langsung Booking" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding"
-                android:orientation="horizontal">
+        </LinearLayout>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@color/white" />
-
-                <TextView
-                    style="@style/blackTextContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:gravity="center_vertical"
-                    android:paddingStart="@dimen/padding"
-                    android:text="Kalau kamu dari luar kota,
-                                    kita pesenin tiket transportasi."
-                    android:textSize="16sp" />
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_booking"
-                style="@style/whiteTextBody"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:layout_marginTop="@dimen/margin"
-                android:background="@color/magentaColor"
-                android:text="Langsung Booking" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-    </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

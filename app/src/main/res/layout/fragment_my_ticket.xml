@@ -28,11 +28,312 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_tickets"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/margin_card"/>
+            android:layout_height="wrap_content">
 
-    </androidx.appcompat.widget.LinearLayoutCompat>\
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_24dp"
+                    android:layout_marginTop="@dimen/_24dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ok_ticket"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/blackTextBody"
+                        android:layout_marginStart="@dimen/_12dp"
+                        android:text="Active Ticket"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_24dp"
+                    android:backgroundTint="@color/white"
+                    app:cardElevation="@dimen/_4dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/ticketCodeImageView"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="@dimen/_24dp"
+                            android:layout_marginTop="@dimen/_16dp"
+                            android:layout_marginEnd="@dimen/_16dp"
+                            android:translationZ="@dimen/_12dp"
+                            android:src="@drawable/ic_code"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_below="@id/ticketCodeImageView"
+                            android:layout_marginTop="@dimen/_8dp"
+                            android:layout_marginEnd="@dimen/_30dp"
+                            android:layout_marginBottom="@dimen/_16dp"
+                            android:translationZ="@dimen/_12dp"
+                            style="@style/whiteTextContent"
+                            android:text="QR Code" />
+
+                        <LinearLayout
+                            android:id="@+id/mainCardLinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/darkBlue"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/placeNameTextView"
+                                style="@style/whiteTextHeader"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/_16dp"
+                                android:layout_marginTop="@dimen/_16dp"
+                                android:text="Ratu Boko" />
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="@dimen/_12dp"
+                                android:layout_marginStart="@dimen/_16dp"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:src="@drawable/ic_person"
+                                        app:tint="@color/white" />
+
+                                    <TextView
+                                        android:id="@+id/personTextView"
+                                        style="@style/whiteTextBody"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_6dp"
+                                        android:text="Person"
+                                        android:textSize="16sp" />
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_6dp"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="32dp"
+                                        android:layout_height="32dp"
+                                        android:src="@drawable/ic_calendar"
+                                        app:tint="@color/white" />
+
+                                    <TextView
+                                        android:id="@+id/dateTextView"
+                                        style="@style/whiteTextBody"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_6dp"
+                                        android:text="Date"
+                                        android:textSize="16sp" />
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            </LinearLayout>
+
+                            <ImageButton
+                                android:id="@+id/arrowImageButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/darkBlue"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/ic_arrow_down"
+                                app:tint="@color/white" />
+
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/detailTicketLinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/mainCardLinearLayout"
+                            android:visibility="gone"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:id="@+id/berangkatRelativeLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/_16dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_centerVertical="true"
+                                    style="@style/blackTextContent"
+                                    android:text="Berangkat" />
+
+                                <TextView
+                                    android:id="@+id/waktuBerangkatTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginEnd="@dimen/_8dp"
+                                    android:layout_toStartOf="@id/waktuBerangkatSuccessImageView"
+                                    style="@style/blackTextContent"
+                                    android:text="08:00 WIB" />
+
+                                <ImageView
+                                    android:id="@+id/waktuBerangkatSuccessImageView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:src="@drawable/ic_success"
+                                    android:visibility="gone"
+                                    app:tint="@color/greenColor" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/secondDetailTicketRelativeLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/_16dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentStart="true"
+                                    style="@style/blackTextContent"
+                                    android:text="Masuk Lokasi Wisata" />
+
+                                <TextView
+                                    android:id="@+id/waktuWisataTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_toStartOf="@id/waktuWisataSuccessImageView"
+                                    style="@style/blackTextContent"
+                                    android:text="12:00 WIB" />
+
+                                <ImageView
+                                    android:id="@+id/waktuWisataSuccessImageView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:src="@drawable/ic_success"
+                                    android:visibility="gone"
+                                    app:tint="@color/greenColor" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/secondDetailTicketRelativeLayout"
+                                android:padding="@dimen/_16dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentStart="true"
+                                    style="@style/blackTextContent"
+                                    android:text="Pulang" />
+
+                                <TextView
+                                    android:id="@+id/waktuPulangTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_toStartOf="@id/waktuPulangSuccessImageView"
+                                    style="@style/blackTextContent"
+                                    android:text="16:00 WIB" />
+
+                                <ImageView
+                                    android:id="@+id/waktuPulangSuccessImageView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:src="@drawable/ic_success"
+                                    android:visibility="gone"
+                                    app:tint="@color/greenColor" />
+
+                            </RelativeLayout>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_24dp"
+                    android:layout_marginTop="@dimen/_24dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_history"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/blackTextBody"
+                        android:layout_marginStart="@dimen/_12dp"
+                        android:text="History"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_tickets"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/_24dp"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </ScrollView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </FrameLayout>

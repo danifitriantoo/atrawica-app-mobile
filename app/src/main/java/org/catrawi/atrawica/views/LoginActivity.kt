@@ -1,18 +1,20 @@
 package org.catrawi.atrawica.views
 
 import android.app.Dialog
-import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import org.catrawi.atrawica.MainActivity
-import org.catrawi.atrawica.R
 import org.catrawi.atrawica.databinding.ActivityLoginBinding
+import org.catrawi.atrawica.databinding.DialogLoadingBinding
+import org.catrawi.atrawica.databinding.ModalSheetBinding
 import org.catrawi.atrawica.models.Credential
 import org.catrawi.atrawica.services.api.ApiService
 import org.catrawi.atrawica.services.api.SessionManager
@@ -23,95 +25,111 @@ import org.catrawi.atrawica.viewmodels.repository.AuthRepository
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var viewModel: AuthViewModel
+
+    private lateinit var binding: ActivityLoginBinding
+    private lateinit var modalSheetBinding: ModalSheetBinding
+    private lateinit var dialogLoginBinding: DialogLoadingBinding
+
+    private lateinit var bottomSheetDialog: BottomSheetDialog
+    private lateinit var progressDialog: Dialog
+    private lateinit var data: Credential
+
     private val apiService = ApiService.getService()
 
+    @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityLoginBinding.inflate(layoutInflater)
+
+        /** Initialize binding **/
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        modalSheetBinding = ModalSheetBinding.inflate(layoutInflater)
+        dialogLoginBinding = DialogLoadingBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
 
-//        val sessionManager = SessionManager(this)
+        /** Initialize other late init **/
+        viewModel = ViewModelProvider(this,
+            AuthViewModelFactory(AuthRepository(apiService)))[AuthViewModel::class.java]
 
-        viewModel = ViewModelProvider(this, AuthViewModelFactory(AuthRepository(apiService)))[AuthViewModel::class.java]
-
-        val progressDialog = Dialog(this)
-        progressDialog.setContentView(R.layout.dialog_loading)
-        progressDialog.setCancelable(false)
+        progressDialog = Dialog(this)
+        bottomSheetDialog = BottomSheetDialog(this)
 
         binding.tvRegister.setOnClickListener {
             val intent = Intent(this,RegisterActivity::class.java)
             startActivity(intent)
         }
 
-        val token = SessionManager.getToken(this)
-        if (!token.isNullOrBlank()) {
-            intentHome()
-        }
-
-
         binding.btnLogin.setOnClickListener {
 
-            progressDialog.show()
-
-            val data = Credential(
+            data = Credential(
                 binding.etEmail.text.toString(),
                 binding.etKeypass.text.toString()
             )
 
-            if(validation(data))
-            {
-                viewModel.userAuth(data)
+            if (validation(data)) {
+                progressDialog.setContentView(dialogLoginBinding.root)
+                progressDialog.show()
 
-                progressDialog.dismiss()
+                /** Asynchronously consume data from API  **/
+                GlobalScope.launch(Dispatchers.IO) {
 
-                viewModel.responseData.observe(this, Observer {
+                    val result = async { viewModel.userAuth(data) }
 
-                SessionManager.saveAuthToken(this,it.data.authToken)
+                    result.await()
 
-                    when(it.code) {
-                        200 -> intentHome()
+                    /** Dismissed progress dialog after data consumed  **/
+                    progressDialog.dismiss()
+
+                }
+
+                viewModel.responseData.observe(this) {
+                    when (it.code) {
+                        200 -> {
+                            SessionManager.saveAuthToken(this, it.data.authToken)
+                            intentHome() }
                         else -> showModalSheet()
                     }
-                })
-
+                }
             }
 
-            if(!validation(data)) { showModalSheet() }
+            if (!validation(data)) { showModalSheet() }
 
         }
 
     }
 
-    fun intentHome() {
-        val intent = Intent(
-            this,
-            MainActivity::class.java)
+    override fun onResume() {
+        super.onResume()
+
+        if (!SessionManager.getToken(
+                this).isNullOrBlank()) {
+            intentHome()
+        }
+    }
+
+    private fun intentHome() {
+        val intent = Intent(this, MainActivity::class.java)
 
         startActivity(intent)
+        finish()
     }
 
-    fun validation(data: Credential) : Boolean {
+    private fun validation(data: Credential) : Boolean {
+
         var valid = true
-
-        if(data.email == "" || data.keypass == "") { valid = false }
-
+        if (data.email == "" || data.keypass == "") { valid = false }
         return valid
+
     }
 
-    fun errorLog(code:Int) {
-        Log.d("Error ", "code : $code")
-    }
+    private fun showModalSheet() {
+        bottomSheetDialog.setContentView(modalSheetBinding.root)
 
-    fun showModalSheet() {
-
-        val dialog = BottomSheetDialog(this)
-        dialog.setContentView(R.layout.modal_sheet)
-
-        dialog.findViewById<Button>(R.id.btn_confirm)?.setOnClickListener {
-            dialog.dismiss()
+        modalSheetBinding.btnConfirm.setOnClickListener {
+            bottomSheetDialog.dismiss()
         }
 
-        dialog.show()
+        bottomSheetDialog.show()
     }
 
 }

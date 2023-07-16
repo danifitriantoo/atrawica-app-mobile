@@ -17,9 +17,9 @@ class HomeViewModel(
     val responseData = MutableLiveData<ArrayList<Place>>()
     val errorLog = MutableLiveData<String>()
 
-    fun getAllPlace() {
+    fun getAllPlace(token:String) {
 
-        val response = repository.getAllPlace()
+        val response = repository.getAllPlace(token)
 
         response.enqueue(object: Callback<PlaceMeta> {
             override fun onResponse(call: Call<PlaceMeta>, response: Response<PlaceMeta>) {

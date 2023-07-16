@@ -6,10 +6,10 @@ import org.catrawi.atrawica.services.api.ApiService.Companion.apiService
 import retrofit2.http.Query
 
 class DetailBookingRepository constructor(private val apiService: ApiService) {
-    fun postDetailBooking(data: DetailBooking) = apiService.postDetailBooking(data)
+    fun postDetailBooking(token: String,data: DetailBooking) = apiService.postDetailBooking(token,data)
 
-    fun getDetailBooking() = apiService.getDetailBooking(0)
-    fun getTicket(placeId : Int,departureId : Int) = apiService.getTicket(placeId,departureId)
+    fun getDetailBooking(token: String) = apiService.getDetailBooking(token,0)
+    fun getTicket(token: String,placeId : Int,departureId : Int) = apiService.getTicket(token,placeId,departureId)
 
-    fun putDetailBooking() = apiService.putDetailBooking(0)
+    fun putDetailBooking(token: String) = apiService.putDetailBooking(token,0)
 }

@@ -2,4 +2,9 @@
     <string name="app_name">Atrawica</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="homeTitle">Rencanain healing sambil rebahan, kita yang atur...</string>
+    <string name="homeBudget">Budget Kamu</string>
+    <string name="homeMyBudget">IDR 1.450.000</string>
+    <string name="homeTabTitleOne">Gak Pakai Ribet</string>
+    <string name="homeTabTitleTwo">Lebih Explore</string>
 </resources>

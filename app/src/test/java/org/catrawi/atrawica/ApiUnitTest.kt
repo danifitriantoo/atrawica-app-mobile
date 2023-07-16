@@ -1,11 +1,7 @@
 package org.catrawi.atrawica
 
-import androidx.lifecycle.ViewModelProvider
 import org.catrawi.atrawica.models.Credential
 import org.catrawi.atrawica.services.api.ApiService
-import org.catrawi.atrawica.viewmodels.TestViewModel
-import org.catrawi.atrawica.viewmodels.repository.TestRepository
-import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test

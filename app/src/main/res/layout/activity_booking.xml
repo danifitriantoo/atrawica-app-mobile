@@ -16,7 +16,7 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_card"
+            android:layout_margin="@dimen/_12dp"
             app:navigationIcon="@drawable/ic_back"
             app:navigationIconTint="@color/white"
             app:titleCentered="true"
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/appbar_layout"
         android:orientation="vertical"
-        android:padding="@dimen/padding">
+        android:padding="@dimen/_16dp">
 
         <TextView
             android:id="@+id/tv_title"
@@ -47,7 +47,7 @@
             style="@style/blackTextContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_card"
+            android:layout_marginTop="@dimen/_12dp"
             android:text="Rencanain dulu biar lengkap sesuai keinginan kamu"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,13 +56,13 @@
         <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin" />
+            android:layout_marginTop="@dimen/_24dp" />
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="@dimen/margin">
+            android:paddingVertical="@dimen/_24dp">
 
             <TextView
                 android:id="@+id/tv_identitas"
@@ -75,12 +75,12 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_name"
+                android:id="@+id/placeNameTextView"
                 style="@style/blackTextContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/tv_identitas"
-                android:layout_marginStart="@dimen/margin_card"
+                android:layout_marginStart="@dimen/_12dp"
                 android:layout_marginTop="32dp"
                 android:text="John Doe"
                 android:textSize="14sp" />
@@ -90,9 +90,9 @@
                 style="@style/blackTextContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@id/tv_name"
-                android:layout_marginStart="@dimen/margin_card"
-                android:layout_marginTop="@dimen/margin"
+                android:layout_alignTop="@id/placeNameTextView"
+                android:layout_marginStart="@dimen/_12dp"
+                android:layout_marginTop="@dimen/_24dp"
                 android:text="+628484938368"
                 android:textSize="14sp" />
 
@@ -107,7 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="@dimen/margin"
+            android:layout_marginTop="@dimen/_24dp"
             android:text="Detail Keberangkatan"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -116,7 +116,7 @@
             style="@style/blackTextContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding"
+            android:layout_marginTop="@dimen/_16dp"
             android:text="Darimana sih?"
             android:textSize="14sp" />
 
@@ -129,7 +129,7 @@
                 android:id="@+id/et_departure"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="@dimen/padding"
+                android:paddingVertical="@dimen/_16dp"
                 android:background="@drawable/style_textfield"
                 android:entries="@array/departure_city"/>
 
@@ -140,7 +140,7 @@
             style="@style/blackTextContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding"
+            android:layout_marginTop="@dimen/_16dp"
             android:text="Mau berangkat kapan?"
             android:textSize="14sp" />
 
@@ -165,10 +165,10 @@
         style="@style/whiteTextBody"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:layout_margin="@dimen/margin_card"
+        android:layout_margin="@dimen/_12dp"
         android:layout_alignParentBottom="true"
         android:background="@color/magentaColor"
-        android:paddingHorizontal="@dimen/padding"
+        android:paddingHorizontal="@dimen/_16dp"
         android:text="Booking" />
 
 </RelativeLayout>

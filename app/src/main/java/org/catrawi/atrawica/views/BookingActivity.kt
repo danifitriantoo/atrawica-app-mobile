@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import org.catrawi.atrawica.databinding.ActivityBookingBinding
 import org.catrawi.atrawica.models.Booking
 import org.catrawi.atrawica.services.api.ApiService
+import org.catrawi.atrawica.services.api.SessionManager
 import org.catrawi.atrawica.viewmodels.BookingViewModel
 import org.catrawi.atrawica.viewmodels.factory.BookingViewModelFactory
 import org.catrawi.atrawica.viewmodels.repository.BookingRepository
@@ -64,7 +65,8 @@ class BookingActivity : AppCompatActivity() {
 
             val data = Booking(0, 18, 1602, "2023-12-12", 1)
 
-            viewModel.postBooking(data)
+            viewModel.postBooking(
+                SessionManager.getToken(this).toString(),data)
 
             val intent = Intent(
                 this,

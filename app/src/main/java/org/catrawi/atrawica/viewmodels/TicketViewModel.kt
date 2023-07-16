@@ -17,8 +17,8 @@ class TicketViewModel(
     val responseData = MutableLiveData<ArrayList<Ticket>>()
     val errorLog = MutableLiveData<String>()
 
-    fun getTicket(placeId : Int,departureId: Int) {
-        val response = repository.getTicket(placeId,departureId)
+    fun getTicket(token: String,placeId : Int,departureId: Int) {
+        val response = repository.getTicket(token,placeId,departureId)
 
         response.enqueue(object: Callback<TicketMeta> {
             override fun onResponse(call: Call<TicketMeta>, response: Response<TicketMeta>) {
@@ -37,8 +37,8 @@ class TicketViewModel(
         })
     }
 
-    fun postDetailBooking(placeId : Int,departureId: Int) {
-        val response = repository.getTicket(placeId,departureId)
+    fun postDetailBooking(token: String,placeId : Int,departureId: Int) {
+        val response = repository.getTicket(token,placeId,departureId)
 
         response.enqueue(object: Callback<TicketMeta> {
             override fun onResponse(call: Call<TicketMeta>, response: Response<TicketMeta>) {

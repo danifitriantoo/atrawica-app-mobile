@@ -1,115 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.fragments.HomeFragment">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <RelativeLayout
-            android:id="@+id/cl_header"
+            android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="212dp"
-            android:background="@color/magentaColor">
+            android:layout_height="wrap_content"
+            android:background="@color/magentaColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_alignParentStart="true"
                 style="@style/whiteTextBody"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin"
-                android:layout_marginTop="16dp"
-                android:textSize="20sp"
-                android:text="Rencanain healing sambil rebahan, kita yang atur..." />
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="@dimen/_24dp"
+                android:layout_marginTop="@dimen/_24dp"
+                android:layout_marginEnd="@dimen/_24dp"
+                android:text="@string/homeTitle"
+                android:textSize="20sp" />
 
             <ImageButton
                 android:id="@+id/btn_profile"
                 android:layout_width="62dp"
                 android:layout_height="62dp"
-                android:layout_marginHorizontal="@dimen/margin"
-                android:layout_marginTop="16dp"
-                android:src="@color/black"
-                android:background="@color/magentaColor"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:importantForAccessibility="no" />
+                android:layout_marginHorizontal="@dimen/_24dp"
+                android:layout_marginTop="@dimen/_24dp"
+                android:background="@color/magentaColor"
+                android:importantForAccessibility="no"
+                android:src="@color/black" />
 
             <TextView
                 android:id="@+id/tv_budget_kamu"
                 style="@style/whiteTextBody"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/btn_profile"
-                android:layout_marginHorizontal="@dimen/margin"
-                android:text="Budget Kamu" />
+                android:layout_below="@+id/textView"
+                android:layout_marginHorizontal="@dimen/_24dp"
+                android:layout_marginTop="@dimen/_12dp"
+                android:text="@string/homeBudget" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout2"
+            <TextView
+                android:id="@+id/tv_my_budget"
+                style="@style/whiteTextHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/tv_budget_kamu"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_below="@id/tv_budget_kamu"
+                android:layout_alignParentStart="true"
+                android:layout_marginHorizontal="@dimen/_24dp"
+                android:layout_marginTop="@dimen/_12dp"
+                android:layout_marginBottom="@dimen/_24dp"
+                android:text="@string/homeMyBudget" />
 
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tl_action"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_my_budget">
 
-                <TextView
-                    android:id="@+id/tv_my_budget"
-                    style="@style/whiteTextHeader"
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tab_easy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin"
-                    android:text="IDR 1.450.000" />
+                    android:text="@string/homeTabTitleOne" />
 
-                <!--                <ImageButton-->
-                <!--                    android:id="@+id/btn_budget"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:backgroundTint="@color/magentaColor"-->
-                <!--                    android:src="@color/black"-->
-                <!--                    android:tint="@color/white"-->
-                <!--                    android:contentDescription="TODO" />-->
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tab_maps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/homeTabTitleTwo" />
 
-            </LinearLayout>
+            </com.google.android.material.tabs.TabLayout>
 
         </RelativeLayout>
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tl_action"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            >
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tab_easy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Gak Pakai Ribet"
-                />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tab_maps"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lebih Explore"
-                />
-
-        </com.google.android.material.tabs.TabLayout>
-
         <fragment
+            android:id="@+id/fragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:name="EasyFragment"
-            android:id="@+id/fragment"
-            tools:layout="@layout/fragment_easy"
-            android:layout_marginTop="66dp"/>
+            android:layout_marginVertical="@dimen/_24dp"
+            android:name="org.catrawi.atrawica.views.fragments.EasyFragment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            tools:layout="@layout/fragment_easy" />
 
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

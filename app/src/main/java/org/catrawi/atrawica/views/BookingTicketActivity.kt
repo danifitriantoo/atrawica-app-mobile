@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import org.catrawi.atrawica.databinding.ActivityBookingTicketBinding
 import org.catrawi.atrawica.services.api.ApiService
+import org.catrawi.atrawica.services.api.SessionManager
 import org.catrawi.atrawica.viewmodels.TicketViewModel
 import org.catrawi.atrawica.viewmodels.factory.TicketViewModelFactory
 import org.catrawi.atrawica.viewmodels.repository.TicketRepository
@@ -25,7 +26,7 @@ class BookingTicketActivity : AppCompatActivity() {
             this, TicketViewModelFactory(TicketRepository(apiService)
             ))[TicketViewModel::class.java]
 
-        viewModel.getTicket(3,40281)
+        viewModel.getTicket(SessionManager.getToken(this).toString(),3,40281)
         viewModel.responseData.observe(this) {
             Log.d("Data Ticket", it.toString())
 

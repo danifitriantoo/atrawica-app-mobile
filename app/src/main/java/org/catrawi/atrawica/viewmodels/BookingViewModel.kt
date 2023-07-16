@@ -51,10 +51,10 @@ class BookingViewModel(
 //        /* lanjutkan buat controller api call method get dan put untuk endpoint booking */
 //    }
 
-        fun postBooking(data: Booking) {
+        fun postBooking(token:String,data: Booking) {
 
             /* inisiasi untuk action repository */
-            val response = repository.postBooking(data)
+            val response = repository.postBooking(token,data)
 
             /* controller untuk api call method post untuk endpoint booking */
             response.enqueue(object : Callback<BookingMeta> {

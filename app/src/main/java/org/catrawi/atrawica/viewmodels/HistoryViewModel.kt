@@ -22,9 +22,9 @@ class HistoryViewModel (
     val responseBooking = MutableLiveData<ArrayList<BookingResponse>>()
     val errorLog = MutableLiveData<String>()
 
-    fun getAllBooking(userId: Int) {
+    fun getAllBooking(token:String,userId: Int) {
 
-        val response = repository.getAllBooking(userId)
+        val response = repository.getAllBooking(token,userId)
 
         response.enqueue(object: Callback<BookingMetaResponseList> {
             override fun onResponse(call: Call<BookingMetaResponseList>, response: Response<BookingMetaResponseList>) {
@@ -45,9 +45,9 @@ class HistoryViewModel (
         })
     }
 
-    fun getDetailBooking(bookingId: Int) {
+    fun getDetailBooking(token:String,bookingId: Int) {
 
-        val response = repository.getDetailBooking(bookingId)
+        val response = repository.getDetailBooking(token,bookingId)
 
         response.enqueue(object: Callback<DetailBookingMetaList> {
             override fun onResponse(call: Call<DetailBookingMetaList>, response: Response<DetailBookingMetaList>) {
@@ -58,7 +58,7 @@ class HistoryViewModel (
                     404 -> errorLog.postValue("Server Error")
                 }
 
-                Log.d("Status Code", "code : ${response.code()}")
+                Log.d("Detail Status Code", "code : ${response.code()}")
 
             }
             override fun onFailure(call: Call<DetailBookingMetaList>, t: Throwable) {

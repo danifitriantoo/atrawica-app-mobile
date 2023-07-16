@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="margin">24dp</dimen>
-    <dimen name="margin_card">12dp</dimen>
+    <!--  Text and Shape Dimension  -->
+    <dimen name="_4dp">4dp</dimen>
+    <dimen name="_8dp">8dp</dimen>
+    <dimen name="_10dp">10dp</dimen>
+    <dimen name="_12dp">12dp</dimen>
+    <dimen name="_14dp">14dp</dimen>
+    <dimen name="_16dp">16dp</dimen>
+    <dimen name="_24dp">24dp</dimen>
+    <dimen name="_32dp">32dp</dimen>
+    <dimen name="_44dp">44dp</dimen>
+    <dimen name="_52dp">52dp</dimen>
 
-    <dimen name="padding">16dp</dimen>
-    <dimen name="padding_button">14dp</dimen>
+    <!--  Big Card Dimension  -->
+    <dimen name="_236dp">236dp</dimen>
+    <dimen name="_324dp">324dp</dimen>
+
 
 </resources>

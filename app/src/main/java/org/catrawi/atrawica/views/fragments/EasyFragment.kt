@@ -1,3 +1,5 @@
+package org.catrawi.atrawica.views.fragments
+
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -7,15 +9,24 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.test.internal.runner.junit4.statement.UiThreadStatement.runOnUiThread
+import com.facebook.shimmer.ShimmerFrameLayout
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import org.catrawi.atrawica.adapters.PlaceAdapter
 import org.catrawi.atrawica.adapters.interfaces.ItemListener
 import org.catrawi.atrawica.databinding.FragmentEasyBinding
 import org.catrawi.atrawica.models.Place
 import org.catrawi.atrawica.services.api.ApiService
+import org.catrawi.atrawica.services.api.SessionManager
 import org.catrawi.atrawica.viewmodels.HomeViewModel
 import org.catrawi.atrawica.viewmodels.factory.HomeViewModelFactory
 import org.catrawi.atrawica.viewmodels.repository.HomeRepository
 import org.catrawi.atrawica.views.DetailActivity
+
 
 class EasyFragment : Fragment(), ItemListener {
 
@@ -23,11 +34,15 @@ class EasyFragment : Fragment(), ItemListener {
     private val apiService = ApiService.getService()
     private lateinit var binding: FragmentEasyBinding
     private val adapter = PlaceAdapter()
+    private lateinit var shimmerFrameLayout: ShimmerFrameLayout
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
 
         binding = FragmentEasyBinding.inflate(inflater,container,false)
+
+        shimmerFrameLayout = binding.placeShimmerLayout
+        shimmerFrameLayout.startShimmer()
 
         homeViewModel = ViewModelProvider(requireActivity(),
             HomeViewModelFactory(HomeRepository(apiService)))[HomeViewModel::class.java]
@@ -39,25 +54,30 @@ class EasyFragment : Fragment(), ItemListener {
         binding.rvPlaces.adapter = adapter
 
         adapter.listener = this
-
+//
         return binding.root
 
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        GlobalScope.launch(Dispatchers.IO) {
+            val result = async { homeViewModel.getAllPlace(
+                SessionManager.getToken(requireActivity()).toString()
+            ) }
+
+            result.await()
+
+        }
+
         homeViewModel.responseData.observe(requireActivity()) {
-            Log.d("API Call", "places : $it")
             adapter.setPlaceList(it)
+            shimmerFrameLayout.stopShimmer()
+            shimmerFrameLayout.visibility = View.GONE
         }
-
-        homeViewModel.errorLog.observe(requireActivity()) {
-            Log.d("Error ", "errorMessage: $it")
-        }
-
-        homeViewModel.getAllPlace()
-
     }
 
     override fun onItemClicked(view: View, data: Place) {

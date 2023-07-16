@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="@dimen/margin">
+    android:padding="@dimen/_24dp">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -15,7 +15,7 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin"
+        android:layout_marginTop="@dimen/_24dp"
         style="@style/blackTextBody"
         android:textSize="16sp"
         android:text="Gagal Login"/>
@@ -24,7 +24,7 @@
         android:id="@+id/tv_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_card"
+        android:layout_marginTop="@dimen/_12dp"
         android:textAlignment="center"
         style="@style/blackTextContent"
         android:textSize="14sp"
@@ -34,8 +34,8 @@
         android:id="@+id/btn_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin"
-        android:paddingVertical="@dimen/margin"
+        android:layout_marginTop="@dimen/_24dp"
+        android:paddingVertical="@dimen/_24dp"
         android:background="@drawable/main_button_style"
         android:textColor="@color/white"
         android:text="Okay"/>

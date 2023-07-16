@@ -11,7 +11,7 @@
         android:layout_height="@dimen/_324dp"
         android:layout_marginStart="@dimen/_24dp"
         android:layout_marginVertical="@dimen/_24dp"
-        android:backgroundTint="@color/darkBlue"
+        android:backgroundTint="@color/grayLight"
         app:cardElevation="@dimen/_4dp">
 
         <LinearLayout
@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:scaleType="centerCrop"
-                android:src="@color/white" />
+                android:src="@color/grayColor" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -31,31 +31,36 @@
                 android:orientation="vertical"
                 android:padding="@dimen/_16dp">
 
-                <TextView
-                    android:id="@+id/placeNameTextView"
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/whiteTextHeader"
-                    android:text="Ratu Boko"
-                    />
+                    android:background="@color/grayColor">
 
-                <TextView
-                    android:id="@+id/descriptionTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_12dp"
-                    style="@style/whiteTextContent"
-                    android:text="Candi Ratu Boko sering disebut juga Kraton Ratu Boko. Disebut Kraton Boko, karena..."
-                    />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/whiteTextHeader"
+                        android:textColor="@color/grayColor"
+                        android:text="Ratu Boko"
+                        />
 
-                <TextView
-                    android:id="@+id/priceTextView"
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_12dp"
-                    style="@style/whiteTextHeader"
-                    android:text="IDR 1.250.000*"
-                    />
+                    android:background="@color/grayColor"
+                    android:layout_marginTop="@dimen/_12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/whiteTextHeader"
+                        android:textColor="@color/grayColor"
+                        android:text="Lorem ipsum dolor"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -66,19 +71,25 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ok_bus"/>
+                        android:src="@drawable/ok_bus"
+                        android:tint="@color/grayColor"
+                        android:background="@color/grayColor"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_12dp"
-                        android:src="@drawable/ok_train" />
+                        android:src="@drawable/ok_train"
+                        android:tint="@color/grayColor"
+                        android:background="@color/grayColor"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_12dp"
-                        android:src="@drawable/ok_ticket" />
+                        android:src="@drawable/ok_ticket"
+                        android:tint="@color/grayColor"
+                        android:background="@color/grayColor"/>
 
                 </LinearLayout>
 

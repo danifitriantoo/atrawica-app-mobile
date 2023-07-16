@@ -4,12 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.carousel.CarouselLayoutManager
-import org.catrawi.atrawica.R
 import org.catrawi.atrawica.databinding.ActivityDetailBinding
-import org.catrawi.atrawica.databinding.ActivityLoginBinding
-import org.catrawi.atrawica.databinding.FragmentEasyBinding
 
 class DetailActivity : AppCompatActivity() {
 
@@ -22,12 +17,14 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         id = intent.getIntExtra("id",0);
-        binding.tvName.text = intent.getStringExtra("name")
-        binding.tvDescription.text = intent.getStringExtra("description")
+
+        binding.placeNameTextView.text = intent.getStringExtra("name")
+        binding.descriptionTextView.text = intent.getStringExtra("description")
+        binding.placeTitleAppbar.title = intent.getStringExtra("name")
 
         Log.d("User Id",id.toString())
 
-        binding.btnBooking.setOnClickListener {
+        binding.bookingButton.setOnClickListener {
             val intent = Intent(
                 this,
                 BookingActivity::class.java)
