@@ -28,17 +28,11 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_back"
-                android:background="@color/magentaColor"
-                android:contentDescription="TODO"
-                app:tint="@color/white" />
 
             <TextView
                 android:id="@+id/tv_title"
                 style="@style/whiteTextHeader"
+                android:textAlignment="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16dp"
@@ -47,17 +41,7 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_desc"
-            style="@style/whiteTextContent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_12dp"
-            android:text="Nah tinggal bayar aja nih, sama sesuaiin sama dompet digital yang kamu pake aja."
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_header" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -69,6 +53,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
             android:orientation="vertical">
 
             <TextView
@@ -86,7 +71,7 @@
                 style="@style/blackTextContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12dp"
+                android:layout_marginTop="@dimen/_16dp"
                 android:textSize="16sp"
                 android:text="Tiket Wisata"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -97,7 +82,7 @@
                 style="@style/blackTextContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12dp"
+                android:layout_marginTop="@dimen/_16dp"
                 android:textSize="16sp"
                 android:text="Biaya Layanan"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -108,23 +93,13 @@
                 style="@style/blackTextContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12dp"
+                android:layout_marginTop="@dimen/_16dp"
                 android:textSize="16sp"
                 android:text="PPN"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                style="@style/blackTextContent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12dp"
-                android:textSize="16sp"
-                android:text="Discount"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
         </LinearLayout>
 
@@ -133,6 +108,7 @@
             android:layout_height="wrap_content"
             android:gravity="end"
             android:orientation="vertical"
+            android:layout_marginTop="@dimen/_12dp"
             android:layout_alignParentRight="true">
 
             <TextView
@@ -152,7 +128,7 @@
                 style="@style/blackTextContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12dp"
+                android:layout_marginTop="@dimen/_16dp"
                 android:textSize="16sp"
                 android:text="IDR 150000"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -164,7 +140,7 @@
                 style="@style/blackTextContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12dp"
+                android:layout_marginTop="@dimen/_16dp"
                 android:textSize="16sp"
                 android:text="IDR 40000"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -176,7 +152,7 @@
                 style="@style/blackTextContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12dp"
+                android:layout_marginTop="@dimen/_16dp"
                 android:textSize="16sp"
                 android:text="IDR 12000"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -184,17 +160,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <TextView
-                android:id="@+id/tv_discount"
-                style="@style/blackTextContent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12dp"
-                android:textSize="16sp"
-                android:text="IDR 400000"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
         </LinearLayout>
 
@@ -233,25 +198,25 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_voucher"
-                style="@style/whiteTextBody"
+                android:id="@+id/paymentButton"
+                style="@style/blackTextContent"
                 android:layout_alignParentRight="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/_14dp"
                 android:paddingHorizontal="@dimen/_16dp"
+                android:paddingVertical="@dimen/_24dp"
                 android:background="@color/magentaColor"
-                android:backgroundTint="@color/grayColor"
+                android:backgroundTint="@color/white"
                 android:drawableStart="@drawable/ic_payment"
-                android:drawableTint="@color/white"
                 android:text="Pilih Metode Pembayaran" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_bayar"
                 style="@style/whiteTextBody"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/magentaColor"
+                android:layout_height="64dp"
+                android:background="@drawable/main_button_style"
                 android:paddingHorizontal="@dimen/_14dp"
                 android:textStyle="bold"
                 android:text="Bayar" />

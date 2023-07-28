@@ -57,3 +57,21 @@ data class User (
     @SerializedName("budget")
     var budget: Int
 )
+
+data class PayloadDataResponse (
+    @SerializedName("id")
+    var id: Int,
+
+    @SerializedName("unique_name")
+    var name: String?,
+
+    @SerializedName("no_hp")
+    var noHp: String?,
+
+    @SerializedName("budget")
+    var budget: Int?,
+
+    @SerializedName("email")
+    var email: String?,
+
+    )

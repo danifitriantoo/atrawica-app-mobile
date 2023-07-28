@@ -20,9 +20,8 @@ import org.catrawi.atrawica.viewmodels.HistoryViewModel
 import org.catrawi.atrawica.viewmodels.factory.HistoryViewModelFactory
 import org.catrawi.atrawica.viewmodels.repository.HistoryRepository
 import org.catrawi.atrawica.views.TicketActivity
-import java.text.SimpleDateFormat
-import java.time.Instant
-import java.util.Date
+import java.lang.Exception
+
 
 class MyTicketFragment : Fragment(), TicketListener {
     private lateinit var viewModel: HistoryViewModel
@@ -49,43 +48,59 @@ class MyTicketFragment : Fragment(), TicketListener {
 
         adapter.listener = this
 
+
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.responseBooking.observe(requireActivity()) {
-            adapter.setHistoryList(it)
+        if(isAdded) {
+            viewModel.responseBooking.observe(requireActivity()) {
 
-            viewModel.getDetailBooking(
-                SessionManager.getToken(requireContext()).toString(),
-                it[0].id!!.toInt())
+                if(it.isEmpty()) {
+                    binding.mainScrollView.visibility = View.GONE
 
-            binding.placeNameTextView.text = it[0].place.name
-            binding.personTextView.text = "${it[0].qty} Person"
-            binding.dateTextView.text = it[0].date
-        }
+                } else {
+                    binding.mainScrollView.visibility = View.VISIBLE
+                    adapter.setHistoryList(it)
 
-        viewModel.responseData.observe(requireActivity()) {
-            Log.d("Detail booking data ", it.toString())
+                    viewModel.getDetailBooking(
+                        SessionManager.getToken(requireActivity()).toString(),
+                        it[0].id!!.toInt())
 
-            binding.waktuBerangkatTextView.text = it[0].departureTime
-            binding.waktuPulangTextView.text = it[0].backTime
+                    binding.placeNameTextView.text = it[0].place.name
+                    binding.personTextView.text = "${it[0].qty} Person"
+                    binding.dateTextView.text = it[0].date
+                }
 
-            if(it[0].status) {
-                binding.waktuBerangkatSuccessImageView.visibility = View.VISIBLE
-                binding.waktuPulangSuccessImageView.visibility = View.VISIBLE
             }
 
-        }
+            viewModel.responseData.observe(requireActivity()) {
+                Log.d("Detail booking data ", it.toString())
 
-        viewModel.errorLog.observe(requireActivity()) {
-            Log.d("Error ", "errorMessage: $it")
-        }
+                if(it.isEmpty()) {
 
-        viewModel.getAllBooking(
-            SessionManager.getToken(requireContext()).toString(),18)
+                }else {
+                    binding.waktuBerangkatTextView.text = it[0].departureTime
+                    binding.waktuPulangTextView.text = it[0].backTime
+
+                    if(it[0].status) {
+                        binding.waktuBerangkatSuccessImageView.visibility = View.VISIBLE
+                        binding.waktuPulangSuccessImageView.visibility = View.VISIBLE
+                    }
+                }
+
+            }
+
+            viewModel.errorLog.observe(requireActivity()) {
+                Log.d("Error ", "errorMessage: $it")
+            }
+
+            viewModel.getAllBooking(
+                SessionManager.getToken(requireContext()).toString(),SessionManager.getPayload(requireActivity()).id)
+        }
 
         var isActive : Boolean = false
 

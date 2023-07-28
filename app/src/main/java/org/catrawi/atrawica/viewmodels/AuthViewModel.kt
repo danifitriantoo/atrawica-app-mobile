@@ -23,9 +23,6 @@ class AuthViewModel(
         response.enqueue(object: Callback<Meta> {
             override fun onResponse(call: Call<Meta>, response: Response<Meta>) {
                 responseData.postValue(response.body())
-                Log.e("Token Data", response.body()?.data!!.authToken)
-
-
 
             }
 

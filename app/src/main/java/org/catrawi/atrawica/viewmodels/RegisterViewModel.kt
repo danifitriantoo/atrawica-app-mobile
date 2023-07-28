@@ -1,5 +1,6 @@
 package org.catrawi.atrawica.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.catrawi.atrawica.models.Meta
@@ -19,7 +20,7 @@ class RegisterViewModel(
         val response = repository.register(data)
         response.enqueue(object: Callback<MetaRegister> {
             override fun onResponse(call: Call<MetaRegister>, response: Response<MetaRegister>) {
-
+                Log.d("Code Register",response.code().toString())
             }
 
             override fun onFailure(call: Call<MetaRegister>, t: Throwable) {

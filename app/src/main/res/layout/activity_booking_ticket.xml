@@ -111,10 +111,11 @@
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <com.google.android.material.button.MaterialButtonToggleGroup
-                    android:id="@+id/toggleButton"
+                    android:id="@+id/chooseTimeToggleButton"
                     android:layout_width="wrap_content"
                     android:layout_height="64dp"
                     android:layout_below="@id/layout_choose_time"
+                    app:selectionRequired="true"
                     android:layout_marginTop="@dimen/_12dp">
 
                     <Button
@@ -196,10 +197,11 @@
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <com.google.android.material.button.MaterialButtonToggleGroup
-                    android:id="@+id/toggle_halte"
+                    android:id="@+id/chooseBackTimeToggleButton"
                     android:layout_width="wrap_content"
                     android:layout_height="64dp"
                     android:layout_below="@id/layout_choose_time_halte"
+                    app:selectionRequired="true"
                     android:layout_marginTop="@dimen/_12dp">
 
                     <Button
@@ -294,9 +296,12 @@
         style="@style/whiteTextBody"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:layout_margin="@dimen/_12dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/magentaColor"
+        android:layout_marginStart="@dimen/_12dp"
+        android:layout_marginTop="@dimen/_12dp"
+        android:layout_marginEnd="@dimen/_12dp"
+        android:layout_marginBottom="@dimen/_12dp"
+        android:background="@drawable/main_button_style"
         android:paddingHorizontal="@dimen/_16dp"
         android:text="Booking" />
 

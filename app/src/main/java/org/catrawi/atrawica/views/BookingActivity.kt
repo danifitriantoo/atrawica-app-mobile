@@ -6,6 +6,7 @@ import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -24,7 +25,7 @@ class BookingActivity : AppCompatActivity() {
 
     private lateinit var viewModel: BookingViewModel
     private val apiService = ApiService.getService()
-    private var calendar : Calendar = Calendar.getInstance();
+    private var calendar : Calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +36,10 @@ class BookingActivity : AppCompatActivity() {
             .get(BookingViewModel::class.java)
 
         val placeId = intent.getIntExtra("id",0)
+        val price= intent.getIntExtra("price",0)
 
-        Log.d("User Id",placeId.toString())
+        binding.userNameTextView.text = SessionManager.getPayloadData(this).name.toString()
+        binding.phoneTextView.text = SessionManager.getPayloadData(this).noHp.toString()
 
 
         val date =
@@ -47,7 +50,7 @@ class BookingActivity : AppCompatActivity() {
 
                 binding.etDate.setText(SimpleDateFormat(
                     "yyyy-MM-dd", Locale.US)
-                    .format(calendar.getTime()));
+                    .format(calendar.getTime()))
             }
 
         binding.etDate.setOnClickListener {
@@ -63,7 +66,9 @@ class BookingActivity : AppCompatActivity() {
         binding.btnBayar.setOnClickListener {
             val date = binding.etDate.text.toString()
 
-            val data = Booking(0, 18, 1602, "2023-12-12", 1)
+            val data = Booking(0, SessionManager.getPayloadData(this).id, placeId, binding.etDate.text.toString(), 1)
+
+            Log.d("Log Data Booking", data.toString())
 
             viewModel.postBooking(
                 SessionManager.getToken(this).toString(),data)
@@ -72,11 +77,17 @@ class BookingActivity : AppCompatActivity() {
                 this,
                 BookingTicketActivity::class.java)
 
-            viewModel.responseData.observe(this,Observer {
+            intent.putExtra("price",price)
 
+            viewModel.responseData.observe(this,Observer {
+                SessionManager.saveBookingId(this,"BookingId",it.id!!)
+                startActivity(intent)
             })
 
-            startActivity(intent)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 }

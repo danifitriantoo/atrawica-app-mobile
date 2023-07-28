@@ -28,7 +28,7 @@ class TicketViewModel(
                     402 -> errorLog.postValue("Server Error")
                 }
 
-                Log.d("Status Code", "code: ${response.code()}")
+                Log.d("Status Code Ticket", "code: ${response.code()}")
             }
 
             override fun onFailure(call: Call<TicketMeta>, t: Throwable) {

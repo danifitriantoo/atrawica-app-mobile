@@ -19,7 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/_16dp"
+            android:paddingHorizontal="@dimen/_16dp"
+            android:paddingVertical="@dimen/_24dp"
             android:background="@color/magentaColor">
 
             <TextView
@@ -56,6 +57,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:startIconDrawable="@drawable/ic_email"
                 app:boxBackgroundMode="none">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -80,10 +82,12 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:startIconDrawable="@drawable/ic_keypass"
+                app:passwordToggleEnabled="true"
                 app:boxBackgroundMode="none">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_keypass"
+                    android:id="@+id/keypassEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/_24dp"

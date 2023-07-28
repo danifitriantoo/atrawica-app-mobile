@@ -2,8 +2,8 @@ package org.catrawi.atrawica.views
 
 import android.app.Dialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -36,6 +36,8 @@ class LoginActivity : AppCompatActivity() {
 
     private val apiService = ApiService.getService()
 
+    private var index: Int = 0
+
     @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,7 +65,7 @@ class LoginActivity : AppCompatActivity() {
 
             data = Credential(
                 binding.etEmail.text.toString(),
-                binding.etKeypass.text.toString()
+                binding.keypassEditText.text.toString()
             )
 
             if (validation(data)) {

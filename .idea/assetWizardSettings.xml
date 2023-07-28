@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/C:/Dev/android-sdk/icons/material/materialicons/keyboard_arrow_up/baseline_keyboard_arrow_up_24.xml" />
+                                      <entry key="url" value="file:/C:/Dev/android-sdk/icons/material/materialicons/local_phone/baseline_local_phone_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,8 +28,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_arrow_up" />
-                            <entry key="sourceFile" value="C:\Users\danif\OneDrive\Desktop\Assets\ok_train.svg" />
+                            <entry key="outputName" value="ic_phone" />
+                            <entry key="sourceFile" value="B:\Dokumen\Atrawica\v0.2\atrawica-mobile-app\Atrawica" />
                           </map>
                         </option>
                       </PersistentState>

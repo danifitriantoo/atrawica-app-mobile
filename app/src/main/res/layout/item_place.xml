@@ -14,77 +14,101 @@
         android:backgroundTint="@color/darkBlue"
         app:cardElevation="@dimen/_4dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:scaleType="centerCrop"
-                android:src="@color/white" />
+            <ToggleButton
+                android:id="@+id/toggle_favorite"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:textOn=""
+                android:textOff=""
+                android:background="@drawable/favorite_toggle"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:layout_marginTop="@dimen/_16dp"
+                android:layout_alignParentEnd="true"
+                android:elevation="@dimen/_16dp"
+                android:layout_marginEnd="@dimen/_16dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/_16dp">
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/placeNameTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/whiteTextHeader"
-                    android:text="Ratu Boko"
-                    />
-
-                <TextView
-                    android:id="@+id/descriptionTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_12dp"
-                    style="@style/whiteTextContent"
-                    android:text="Candi Ratu Boko sering disebut juga Kraton Ratu Boko. Disebut Kraton Boko, karena..."
-                    />
-
-                <TextView
-                    android:id="@+id/priceTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_12dp"
-                    style="@style/whiteTextHeader"
-                    android:text="IDR 1.250.000*"
-                    />
+                <ImageView
+                    android:id="@+id/placeImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:scaleType="centerCrop"
+                    android:src="@color/grayColor" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_12dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:padding="@dimen/_16dp">
 
-                    <ImageView
+                    <TextView
+                        android:id="@+id/placeNameTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ok_bus"/>
+                        style="@style/whiteTextHeader"
+                        android:text="Ratu Boko"
+                        />
 
-                    <ImageView
+                    <TextView
+                        android:id="@+id/descriptionTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_12dp"
-                        android:src="@drawable/ok_train" />
+                        android:layout_marginTop="@dimen/_12dp"
+                        style="@style/whiteTextContent"
+                        android:text="Candi Ratu Boko sering disebut juga Kraton Ratu Boko. Disebut Kraton Boko, karena..."
+                        />
 
-                    <ImageView
+                    <TextView
+                        android:id="@+id/priceTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_12dp"
-                        android:src="@drawable/ok_ticket" />
+                        android:layout_marginTop="@dimen/_12dp"
+                        style="@style/whiteTextHeader"
+                        android:text="IDR 1.250.000*"
+                        />
 
-                </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ok_bus"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12dp"
+                            android:src="@drawable/ok_train" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12dp"
+                            android:src="@drawable/ok_ticket" />
+
+                    </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
 
     </com.google.android.material.card.MaterialCardView>
 

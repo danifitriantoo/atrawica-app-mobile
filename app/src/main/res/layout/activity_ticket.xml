@@ -17,7 +17,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_header1"
             android:layout_width="match_parent"
-            android:layout_height="164dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_24dp"
             android:background="@color/magentaColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,21 +36,13 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
 
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_back"
-                    android:tint="@color/white"
-                    android:layout_marginHorizontal="@dimen/_24dp"
-                    android:background="@color/magentaColor"
-                    tools:ignore="MissingPrefix"
-                    android:importantForAccessibility="no" />
-
                 <TextView
                     android:id="@+id/tv_title"
                     style="@style/whiteTextHeader"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_24dp"
+                    android:textAlignment="center"
                     android:text="Detail Tiket"
                     />
 

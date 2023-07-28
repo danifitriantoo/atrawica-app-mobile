@@ -24,5 +24,8 @@ data class Place(
     var description: String,
 
     @SerializedName("price")
-    var price: Int
+    var price: Int,
+
+    @SerializedName("image")
+    var image: String
 )

@@ -3,8 +3,7 @@ package org.catrawi.atrawica
 import org.catrawi.atrawica.services.api.ApiService
 
 class ApiConsumeTest {
-    private lateinit var testViewModel: TestViewModel
-    private val apiService = ApiService.getService()
+
 
 //    @Before
 //    fun setup() {

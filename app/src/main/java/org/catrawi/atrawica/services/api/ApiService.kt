@@ -6,6 +6,8 @@ import org.catrawi.atrawica.models.BookingMetaResponseList
 import org.catrawi.atrawica.models.DetailBooking
 import org.catrawi.atrawica.models.DetailBookingMeta
 import org.catrawi.atrawica.models.DetailBookingMetaList
+import org.catrawi.atrawica.models.DetailBookingTicket
+import org.catrawi.atrawica.models.DetailBookingTicketMeta
 import org.catrawi.atrawica.models.Favorite
 import org.catrawi.atrawica.models.Meta
 import org.catrawi.atrawica.models.MetaFavorite
@@ -33,8 +35,14 @@ interface ApiService {
         @Query("keypass") keypass: String
     ): Call<Meta>
 
-    @POST(ApiSetup.PLACE_ENDPOINT)
+    @POST(ApiSetup.REGISTER_ENDPOINT)
     fun register(
+        @Body data: User
+    ): Call<MetaRegister>
+
+    @PUT(ApiSetup.REGISTER_ENDPOINT)
+    fun updateBudget(
+        @Header("Authorization") token:String,
         @Body data: User
     ): Call<MetaRegister>
 
@@ -66,6 +74,12 @@ interface ApiService {
         @Path("BookingId") bookingId: Int
     ): Call<DetailBookingMetaList>
 
+    @GET(ApiSetup.DETAIL_BOOKING_ENDPOINT + "/{BookingId}")
+    fun getDetailBookingTicket(
+        @Header("Authorization") token:String,
+        @Path("BookingId") bookingId: Int
+    ): Call<DetailBookingTicketMeta>
+
     @POST(ApiSetup.DETAIL_BOOKING_ENDPOINT)
     fun postDetailBooking(
         @Header("Authorization") token:String,
@@ -77,14 +91,6 @@ interface ApiService {
         @Header("Authorization") token:String,
         @Query("bookingId") bookingId: Int
     ): Call<DetailBookingMeta>
-
-
-    /* Endpoint - Favorite */
-    @POST(ApiSetup.FAVORITE_ENDPOINT)
-    fun postFavorite(
-        @Body data:Favorite
-    ): Call<MetaFavorite>
-
 
     /* Endpoint - Ticket */
     @GET(ApiSetup.TICKET_ENDPOINT)

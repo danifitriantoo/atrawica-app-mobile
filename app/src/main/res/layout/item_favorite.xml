@@ -1,82 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cv_fav"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/_16dp"
-    android:layout_margin="@dimen/_12dp"
-    android:background="@color/darkBlue">
+    android:layout_margin="@dimen/_16dp">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentStart="true">
-
-        <ImageView
-            android:id="@+id/placeImageView"
-            android:layout_width="136dp"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@color/white"/>
+        android:padding="@dimen/_16dp"
+        android:background="@color/darkBlue">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="@dimen/_12dp">
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_alignParentStart="true">
 
-            <TextView
-                android:id="@+id/tv_place_name"
+            <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/whiteTextHeader"
-                android:text="Ratu Boko"/>
+                app:cardCornerRadius="@dimen/_12dp">
 
-            <TextView
-                android:id="@+id/tv_place_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12dp"
-                style="@style/whiteTextHeader"
-                android:text="IDR 125000"/>
+                <ImageView
+                    android:id="@+id/placeImageView"
+                    android:layout_width="124dp"
+                    android:layout_height="124dp"
+                    android:scaleType="centerCrop"
+                    android:src="@color/white"/>
+
+            </androidx.cardview.widget.CardView>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12dp"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/_16dp">
 
-                <ImageView
+                <TextView
+                    android:id="@+id/tv_place_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@color/white"/>
+                    style="@style/whiteTextHeader"
+                    android:text="Ratu Boko"/>
 
-                <ImageView
+                <TextView
+                    android:id="@+id/tv_place_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_12dp"
-                    android:src="@color/white"/>
+                    android:layout_marginTop="@dimen/_12dp"
+                    style="@style/whiteTextHeader"
+                    android:text="IDR 125000"/>
 
-                <ImageView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_24dp"
-                    android:src="@color/white"/>
+                    android:layout_marginTop="@dimen/_12dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ok_bus"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12dp"
+                        android:src="@drawable/ok_train" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12dp"
+                        android:src="@drawable/ok_ticket" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@color/white"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12dp"
+                        android:src="@color/white"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_24dp"
+                        android:src="@color/white"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="@dimen/_12dp"
-        android:src="@color/white"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/_12dp"
+            android:src="@color/white"/>
 
 
-</RelativeLayout>
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

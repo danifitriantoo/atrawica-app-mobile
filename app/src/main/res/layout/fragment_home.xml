@@ -6,98 +6,120 @@
     android:layout_height="match_parent"
     tools:context=".views.fragments.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/magentaColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/textView"
-                style="@style/whiteTextBody"
-                android:layout_width="240dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="@dimen/_24dp"
-                android:layout_marginTop="@dimen/_24dp"
-                android:layout_marginEnd="@dimen/_24dp"
-                android:text="@string/homeTitle"
-                android:textSize="20sp" />
-
-            <ImageButton
-                android:id="@+id/btn_profile"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginHorizontal="@dimen/_24dp"
-                android:layout_marginTop="@dimen/_24dp"
-                android:background="@color/magentaColor"
-                android:importantForAccessibility="no"
-                android:src="@color/black" />
-
-            <TextView
-                android:id="@+id/tv_budget_kamu"
-                style="@style/whiteTextBody"
-                android:layout_width="240dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textView"
-                android:layout_marginHorizontal="@dimen/_24dp"
-                android:layout_marginTop="@dimen/_12dp"
-                android:text="@string/homeBudget" />
-
-            <TextView
-                android:id="@+id/tv_my_budget"
-                style="@style/whiteTextHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_budget_kamu"
-                android:layout_alignParentStart="true"
-                android:layout_marginHorizontal="@dimen/_24dp"
-                android:layout_marginTop="@dimen/_12dp"
-                android:layout_marginBottom="@dimen/_24dp"
-                android:text="@string/homeMyBudget" />
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tl_action"
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_my_budget">
+                android:background="@color/magentaColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <com.google.android.material.tabs.TabItem
-                    android:id="@+id/tab_easy"
+                <TextView
+                    android:id="@+id/textView"
+                    style="@style/whiteTextBody"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="@dimen/_24dp"
+                    android:layout_marginTop="@dimen/_24dp"
+                    android:layout_marginEnd="@dimen/_24dp"
+                    android:text="@string/homeTitle"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/profileImageButton"
+                    android:layout_width="62dp"
+                    android:layout_height="62dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginHorizontal="@dimen/_24dp"
+                    android:layout_marginTop="@dimen/_24dp"
+                    android:background="@color/magentaColor"
+                    android:importantForAccessibility="no"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_profile"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_budget_kamu"
+                    style="@style/whiteTextBody"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView"
+                    android:layout_marginHorizontal="@dimen/_24dp"
+                    android:layout_marginTop="@dimen/_12dp"
+                    android:text="@string/homeBudget" />
+
+                <TextView
+                    android:id="@+id/tv_my_budget"
+                    style="@style/whiteTextHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/homeTabTitleOne" />
+                    android:layout_below="@id/tv_budget_kamu"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginHorizontal="@dimen/_24dp"
+                    android:layout_marginTop="@dimen/_12dp"
+                    android:layout_marginBottom="@dimen/_24dp"
+                    android:text="@string/homeMyBudget" />
 
-                <com.google.android.material.tabs.TabItem
-                    android:id="@+id/tab_maps"
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginVertical="@dimen/_24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/homeTabTitleTwo" />
+                    android:layout_marginStart="@dimen/_24dp"
+                    android:text="Pas sama budget"
+                    android:textSize="@dimen/_16dp"
+                    style="@style/blackTextBody"/>
 
-            </com.google.android.material.tabs.TabLayout>
+                <fragment
+                    android:id="@+id/fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:name="org.catrawi.atrawica.views.fragments.EasyFragment"
+                    tools:layout="@layout/fragment_easy" />
 
-        </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_24dp"
+                    android:layout_marginVertical="@dimen/_24dp"
+                    android:text="Hot sale"
+                    android:textSize="@dimen/_16dp"
+                    style="@style/blackTextBody"/>
 
-        <fragment
-            android:id="@+id/fragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/_24dp"
-            android:name="org.catrawi.atrawica.views.fragments.EasyFragment"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-            tools:layout="@layout/fragment_easy" />
+                <fragment
+                    android:id="@+id/secondFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:name="org.catrawi.atrawica.views.fragments.EasyFragment"
+                    tools:layout="@layout/fragment_easy" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </ScrollView>
+
 
 </FrameLayout>

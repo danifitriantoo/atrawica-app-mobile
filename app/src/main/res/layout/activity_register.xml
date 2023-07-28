@@ -60,6 +60,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_profile"
                     app:boxBackgroundMode="none">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -84,6 +85,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_email"
                     app:boxBackgroundMode="none">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -108,6 +110,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_phone"
                     app:boxBackgroundMode="none">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -132,6 +135,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_keypass"
                     app:boxBackgroundMode="none">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -156,6 +160,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_keypass"
                     app:boxBackgroundMode="none">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -173,7 +178,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="64dp"
                     android:layout_marginTop="@dimen/_24dp"
-                    android:background="@color/magentaColor"
+                    android:background="@drawable/main_button_style"
                     style="@style/whiteTextBody"
                     android:text="Register" />
 

@@ -7,6 +7,7 @@
     tools:context=".views.fragments.MyTicketFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -29,6 +30,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <ScrollView
+            android:id="@+id/mainScrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -52,11 +54,12 @@
                         app:tint="@color/black" />
 
                     <TextView
+                        style="@style/blackTextBody"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/blackTextBody"
                         android:layout_marginStart="@dimen/_12dp"
-                        android:text="Active Ticket"/>
+                        android:text="Active Ticket"
+                        android:textSize="@dimen/_20dp" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -79,21 +82,21 @@
                             android:layout_marginStart="@dimen/_24dp"
                             android:layout_marginTop="@dimen/_16dp"
                             android:layout_marginEnd="@dimen/_16dp"
-                            android:translationZ="@dimen/_12dp"
                             android:src="@drawable/ic_code"
+                            android:translationZ="@dimen/_12dp"
                             app:tint="@color/white" />
 
                         <TextView
+                            style="@style/whiteTextContent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
                             android:layout_below="@id/ticketCodeImageView"
+                            android:layout_alignParentEnd="true"
                             android:layout_marginTop="@dimen/_8dp"
                             android:layout_marginEnd="@dimen/_30dp"
                             android:layout_marginBottom="@dimen/_16dp"
-                            android:translationZ="@dimen/_12dp"
-                            style="@style/whiteTextContent"
-                            android:text="QR Code" />
+                            android:text="QR Code"
+                            android:translationZ="@dimen/_12dp" />
 
                         <LinearLayout
                             android:id="@+id/mainCardLinearLayout"
@@ -172,8 +175,8 @@
                                 android:id="@+id/arrowImageButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:backgroundTint="@color/darkBlue"
                                 android:layout_gravity="center_horizontal"
+                                android:backgroundTint="@color/darkBlue"
                                 android:src="@drawable/ic_arrow_down"
                                 app:tint="@color/white" />
 
@@ -184,33 +187,33 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/mainCardLinearLayout"
-                            android:visibility="gone"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
                             <RelativeLayout
                                 android:id="@+id/berangkatRelativeLayout"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="@dimen/_16dp"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_16dp">
 
                                 <TextView
+                                    style="@style/blackTextContent"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentStart="true"
                                     android:layout_centerVertical="true"
-                                    style="@style/blackTextContent"
                                     android:text="Berangkat" />
 
                                 <TextView
                                     android:id="@+id/waktuBerangkatTextView"
+                                    style="@style/blackTextContent"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_centerVertical="true"
                                     android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
                                     android:layout_marginEnd="@dimen/_8dp"
                                     android:layout_toStartOf="@id/waktuBerangkatSuccessImageView"
-                                    style="@style/blackTextContent"
                                     android:text="08:00 WIB" />
 
                                 <ImageView
@@ -225,64 +228,28 @@
                             </RelativeLayout>
 
                             <RelativeLayout
-                                android:id="@+id/secondDetailTicketRelativeLayout"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="@dimen/_16dp"
-                                android:orientation="horizontal">
+                                android:layout_below="@id/berangkatRelativeLayout"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_16dp">
 
                                 <TextView
+                                    style="@style/blackTextContent"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_centerVertical="true"
                                     android:layout_alignParentStart="true"
-                                    style="@style/blackTextContent"
-                                    android:text="Masuk Lokasi Wisata" />
-
-                                <TextView
-                                    android:id="@+id/waktuWisataTextView"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
-                                    android:layout_alignParentEnd="true"
-                                    android:layout_toStartOf="@id/waktuWisataSuccessImageView"
-                                    style="@style/blackTextContent"
-                                    android:text="12:00 WIB" />
-
-                                <ImageView
-                                    android:id="@+id/waktuWisataSuccessImageView"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentEnd="true"
-                                    android:src="@drawable/ic_success"
-                                    android:visibility="gone"
-                                    app:tint="@color/greenColor" />
-
-                            </RelativeLayout>
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/secondDetailTicketRelativeLayout"
-                                android:padding="@dimen/_16dp"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerVertical="true"
-                                    android:layout_alignParentStart="true"
-                                    style="@style/blackTextContent"
                                     android:text="Pulang" />
 
                                 <TextView
                                     android:id="@+id/waktuPulangTextView"
+                                    style="@style/blackTextContent"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_centerVertical="true"
                                     android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
                                     android:layout_toStartOf="@id/waktuPulangSuccessImageView"
-                                    style="@style/blackTextContent"
                                     android:text="16:00 WIB" />
 
                                 <ImageView
@@ -317,11 +284,12 @@
                         app:tint="@color/black" />
 
                     <TextView
+                        style="@style/blackTextBody"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/blackTextBody"
                         android:layout_marginStart="@dimen/_12dp"
-                        android:text="History"/>
+                        android:textSize="@dimen/_20dp"
+                        android:text="History" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -329,9 +297,10 @@
                     android:id="@+id/rv_tickets"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/_24dp"/>
+                    android:layout_margin="@dimen/_24dp" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
 
         </ScrollView>
 

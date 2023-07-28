@@ -28,6 +28,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/departTerminalTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/blackTextBody"
@@ -44,7 +45,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_bus"/>
+                        android:src="@drawable/ic_clock"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -80,6 +81,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/transitTerminalTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/blackTextBody"
@@ -96,7 +98,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_bus"/>
+                        android:src="@drawable/ic_clock"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -131,6 +133,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/placeTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/blackTextBody"

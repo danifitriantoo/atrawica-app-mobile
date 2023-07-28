@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.app.PendingIntentCompat
 import androidx.core.view.ContentInfoCompat.Flags
@@ -28,8 +30,6 @@ class RegisterActivity : AppCompatActivity() {
         val binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val sessionManager = SessionManager(this)
-
         viewModel = ViewModelProvider(
             this, RegisterViewModelFactory(
                 RegisterRepository(apiService)))[RegisterViewModel::class.java]
@@ -51,10 +51,13 @@ class RegisterActivity : AppCompatActivity() {
 
             if(validation(user)) {
                 viewModel.register(user)
-                val intent = Intent(this,LoginActivity::class.java)
-                startActivity(intent)
+                showModalSheet(
+                    "Registrasi Berhasil",
+                    "Registrasi akun baru kamu telah berhasil, silahkan login untuk memulai.")
             }
-            if(!validation(user)) { showModalSheet() }
+            if(!validation(user)) { showModalSheet(
+                "Registrasi Gagal",
+                "Periksa lagi yuk, pastikan semua field\n terisi biar akunmu bisa kami proses.") }
 
         }
     }
@@ -69,19 +72,25 @@ class RegisterActivity : AppCompatActivity() {
         return valid
     }
 
-    fun showModalSheet() {
+    fun showModalSheet(title: String, content: String) {
 
         val dialog = BottomSheetDialog(this)
         dialog.setContentView(R.layout.modal_sheet)
 
         dialog.findViewById<Button>(R.id.btn_confirm)?.setOnClickListener {
+            val intent = Intent(this,LoginActivity::class.java)
+            startActivity(intent)
             dialog.dismiss()
         }
 
+        if(title == "Registrasi Berhasil") {
+            dialog.findViewById<ImageView>(R.id.statusImageView)?.visibility = View.GONE
+        }
+
         dialog.findViewById<TextView>(R.id.tv_title)?.text =
-            "Registrasi Gagal"
+            title
         dialog.findViewById<TextView>(R.id.tv_content)?.text =
-            "Periksa lagi yuk, pastikan semua field\n terisi biar akunmu bisa kami proses."
+            content
 
         dialog.show()
     }

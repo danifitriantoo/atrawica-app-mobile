@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.catrawi.atrawica.services.api.SessionManager
+import org.catrawi.atrawica.views.fragments.FaqFragment
 import org.catrawi.atrawica.views.fragments.FavoriteFragment
 import org.catrawi.atrawica.views.fragments.HomeFragment
 import org.catrawi.atrawica.views.fragments.MyTicketFragment
@@ -21,8 +22,6 @@ class MainActivity : AppCompatActivity() {
         loadFragment(HomeFragment())
 
         val token = SessionManager.getToken(this)
-        Log.e("Stored Token Blank","")
-        Log.e("Stored Token",token.toString())
 
         bottomNav = findViewById(R.id.bottom_navigation) as BottomNavigationView
         bottomNav.setOnItemSelectedListener {
@@ -39,7 +38,10 @@ class MainActivity : AppCompatActivity() {
                     loadFragment(FavoriteFragment())
                     true
                 }
-
+                R.id.home_faq -> {
+                    loadFragment(FaqFragment())
+                    true
+                }
                 else -> {
                     loadFragment(FavoriteFragment())
                     true

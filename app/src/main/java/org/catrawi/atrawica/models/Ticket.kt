@@ -30,6 +30,23 @@ data class Ticket(
     var price: Int
 )
 
+data class TicketRawResponse(
+    @SerializedName("id")
+    var id: Int,
+
+    @SerializedName("placeId")
+    var place: Int,
+
+    @SerializedName("departureId")
+    var departure: Int,
+
+    @SerializedName("transitId")
+    var transit: Int,
+
+    @SerializedName("price")
+    var price: Int
+)
+
 data class Departure(
     @SerializedName("id")
     var id: Int,

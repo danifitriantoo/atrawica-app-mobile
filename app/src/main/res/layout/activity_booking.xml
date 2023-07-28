@@ -75,7 +75,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/placeNameTextView"
+                android:id="@+id/userNameTextView"
                 style="@style/blackTextContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -86,11 +86,11 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/tv_hp"
+                android:id="@+id/phoneTextView"
                 style="@style/blackTextContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@id/placeNameTextView"
+                android:layout_alignTop="@id/userNameTextView"
                 android:layout_marginStart="@dimen/_12dp"
                 android:layout_marginTop="@dimen/_24dp"
                 android:text="+628484938368"
@@ -120,21 +120,35 @@
             android:text="Darimana sih?"
             android:textSize="14sp" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:startIconDrawable="@drawable/ic_departure" >
+            android:background="@drawable/style_textfield"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/et_departure"
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingVertical="@dimen/_16dp"
-                android:background="@drawable/style_textfield"
-                android:entries="@array/departure_city"/>
+                android:layout_marginStart="@dimen/_12dp"
+                android:src="@drawable/ic_departure"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/et_departure"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/_16dp"
+                    android:entries="@array/departure_city"/>
 
 
-        </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
 
         <TextView
             style="@style/blackTextContent"
@@ -148,6 +162,7 @@
             android:id="@+id/outlinedTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
             app:startIconDrawable="@drawable/ic_calendar">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -165,9 +180,12 @@
         style="@style/whiteTextBody"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:layout_margin="@dimen/_12dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/magentaColor"
+        android:layout_marginStart="@dimen/_12dp"
+        android:layout_marginTop="@dimen/_12dp"
+        android:layout_marginEnd="@dimen/_12dp"
+        android:layout_marginBottom="@dimen/_12dp"
+        android:background="@drawable/main_button_style"
         android:paddingHorizontal="@dimen/_16dp"
         android:text="Booking" />
 

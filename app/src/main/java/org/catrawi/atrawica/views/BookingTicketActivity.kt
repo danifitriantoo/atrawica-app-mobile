@@ -28,22 +28,25 @@ class BookingTicketActivity : AppCompatActivity() {
 
         viewModel.getTicket(SessionManager.getToken(this).toString(),3,40281)
         viewModel.responseData.observe(this) {
-            Log.d("Data Ticket", it.toString())
 
+            SessionManager.saveTicketId(this,"TicketId",it[0].id)
+            SessionManager.saveTicketPrice(this,"TicketPrice",it[0].price)
             binding.tvTerminal.text = it[0].departure.terminal
             binding.tvHalte.text = it[0].transit.name
             binding.tvTemple.text = it[0].place.name
         }
 
         binding.btnBayar.setOnClickListener {
+            val price = intent.getIntExtra("price",0)
             val intent = Intent(this,CheckoutActivity::class.java)
+            intent.putExtra("price",price)
             startActivity(intent)
         }
+
     }
 
 
     override fun onResume() {
         super.onResume()
-        Log.d("Data Booking",intent.getIntExtra("bookingId",0).toString())
     }
 }

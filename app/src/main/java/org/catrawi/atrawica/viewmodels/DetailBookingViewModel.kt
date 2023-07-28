@@ -38,25 +38,5 @@ class DetailBookingViewModel(
         })
     }
 
-//    fun getDetailBooking() {
-//        val response = repository.getDetailBooking()
-//
-//        response.enqueue(object: Callback<DetailBookingMeta>{
-//            override fun onResponse(call: Call<DetailBookingMeta>, response: Response<DetailBookingMeta>) {
-//                when (response.code()){
-//                    200 -> responseData.postValue(response.body()?.data)
-//                    401 -> errorLog.postValue("Not Found")
-//                    402 -> errorLog.postValue("Server Error")
-//                }
-//
-//                Log.d("Status Code", "code: ${response.code()}")
-//            }
-//
-//            override fun onFailure(call: Call<DetailBookingMeta>, t: Throwable) {
-//                errorLog.postValue(t.message)
-//                TODO("Not yet implemented")
-//            }
-//
-//        } )
-//    }
+
 }

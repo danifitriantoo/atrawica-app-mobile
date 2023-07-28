@@ -66,9 +66,6 @@ class BookingViewModel(
                         404 -> errorLog.postValue("Server Error")
                     }
 
-                    Log.d("Status Code", "code : ${response.code()}")
-                    Log.d("Response Body", "response : ${response.body()}")
-
                 }
 
                 override fun onFailure(call: Call<BookingMeta>, t: Throwable) {
